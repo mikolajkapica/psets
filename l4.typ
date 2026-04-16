@@ -13,7 +13,7 @@ Predykaty:
 2. $"Parzysta"(x) <=> "Dzieli"(1 + 1, x)$
 3. $"MniejszaRowna"(a, b) <=> exists k (b = a + k)$
 4. $"Mniejsza"(a, b) <=> "MniejszaRowna"(a, b) and not(a = b)$
-5. $"Pierwsza"(x) <=> not(x = 0) and not(x = 1) and forall d ("Dzieli"(d, x) => (d = 1 or d = x))$
+5. $"Pierwsza"(x) <=> not(x = 1) and forall d ("Dzieli"(d, x) => (d = 1 or d = x))$
 6. $"NWD"(a, b, c) <=> "Dzieli"(a, b) and "Dzieli"(a, c) and forall d (("Dzieli"(d, b) and "Dzieli"(d, c)) => "MniejszaRowna"(d, a))$
 7. $"Kwadrat"(x) <=> exists k (x = k dot k)$
 
@@ -27,47 +27,47 @@ b) Liczba a jest dzielnikiem liczby b.
 
 $"Dzieli"(a, b)$
 
-a) Liczba a jest największym wspólnym dzielnikiem liczb bi c, chyba, że jest parzysta.
+c) Liczba a jest największym wspólnym dzielnikiem liczb bi c, chyba, że jest parzysta.
 
 $not "Parzysta"(a) => "NWD"(a, b, c) $
 
-c) Żadna liczba parzysta nie jest mniejsza od każdej liczby pierwszej.
+d) Żadna liczba parzysta nie jest mniejsza od każdej liczby pierwszej.
 
 $not exists x ("Parzysta"(x) and forall y ("Pierwsza"(y) => "Mniejsza"(x, y))) $
 
-d) Liczba a jest mniejsza lub równa liczbie b.
+e) Liczba a jest mniejsza lub równa liczbie b.
 
 $"MniejszaRowna"(a, b) $
 
-e) Liczba a jest pierwsza.
+f) Liczba a jest pierwsza.
 
 $"Pierwsza"(a) $
 
-f) Zbiór liczb pierwszych jest nieskończony.
+g) Zbiór liczb pierwszych jest nieskończony.
 
 $forall x exists y ("Mniejsza"(x, y) and "Pierwsza"(y)) $
 
-g) Pewne liczby są kwadratami, a inne nie są.
+h) Pewne liczby są kwadratami, a inne nie są.
 
 $(exists x "Kwadrat"(x)) and (exists y not "Kwadrat"(y)) $
 
-h) Nie każda liczba jest parzysta.
+i) Nie każda liczba jest parzysta.
 
 $not forall x "Parzysta"(x) $
 
-i) Liczby ziy mają te same dzielniki pierwsze.
+j) Liczby ziy mają te same dzielniki pierwsze.
 
 $forall d ("Pierwsza"(d) => ("Dzieli"(d, z) <=> "Dzieli"(d, y))) $
 
-j) Warunkiem koniecznym na to, aby n było nieparzyste, jest aby n było podzielne przez 6.
+k) Warunkiem koniecznym na to, aby n było nieparzyste, jest aby n było podzielne przez 6.
 
 $not "Parzysta"(n) => "Dzieli"(1 + 1 + 1 + 1 + 1 + 1, n) $
 
-k) Prawie wszystkie liczby naturalne (wszystkie z wyjątkiem skończenie wielu) są parzyste.
+l) Prawie wszystkie liczby naturalne (wszystkie z wyjątkiem skończenie wielu) są parzyste.
 
 $exists k forall n ("Mniejsza"(k, n) => "Parzysta"(n))$
 
-l) Liczba a jest resztą z dzielenia liczby b przez c.
+m) Liczba a jest resztą z dzielenia liczby b przez c.
 
 $exists q (b = c dot q + a) and "Mniejsza"(a, c)$
 
