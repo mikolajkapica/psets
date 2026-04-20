@@ -5,7 +5,7 @@
 #let dy = $"d"y$
 #let dz = $"d"z$
 
-Mikołaj Kapica 272729 | Równania Różniczkowe Zwyczajne | Zadanie dodatkowe 6
+MIKOŁAJ KAPICA 272729 | Równania różniczkowe zwyczajne | zadanie dodatkowe 6
 
 Problem 
 
