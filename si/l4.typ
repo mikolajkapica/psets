@@ -127,9 +127,59 @@ c) Sprawdzić, jaki rodzaj relacji oznacza sformułowanie m-th cousin n times re
 
 Problem
 Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować przydatne predykaty i zapisać odpowiednie formuły).  W razie potrzeby można korzystać z predykatów, stałych i funkcji arytmetycznych (np. $x < y$ czy $y = x + 7$) bez ich definiowania.
+
 a) Zasada szufladkowa.
+
+$S(x,y)$ - x w y-tej szufladce.
+
+$
+  (overbrace(n > m, "n obiektów, m szuflad")
+    and overbrace(
+      forall x (1 <= x <= n => exists y (1 <= y <= m and S(x, y)))
+      , "każdy przedmiot znajduje się w jakiejś szufladzie"
+    )
+  ) \
+  => (underbrace(
+      exists_(x_1, x_2, y) (
+        1 <= x_1 <= n
+        and 1 <= x_2 <= n
+        and 1 <= y <= m
+        and x_1 != x_2
+        and S(x_1, y)
+        and S(x_2, y)
+      )
+      , "dwa różne przedmioty w tej samej szufladzie"
+    ))
+$
+
 b) problem n-kolorowania grafów (czyli przypisania do każdego wierzchołka grafu jednego z n kolorów, tak aby każda para sąsiadujących wierzchołków miała różny kolor)
+
+$E(x,y)$ - krawędź między x i y
+
+$K(x,k)$ - kolor k dla wierzcholka x
+
+Każdy wierzchołek ma przypisany jeden kolor:
+
+$ forall x ((exists k (1 <= k <= n and K(x, k))) and forall k_1 forall k_2 (K(x, k_1) and K(x, k_2) => k_1 = k_2)) $
+
+Żadne dwa sąsiadujące wierzchołki nie mają tego samego koloru:
+
+$ forall x forall y forall k (E(x, y) and K(x, k) => not K(y, k)) $
+
 c) problem 8 hetmanów (należy rozstawić na szachownicy 8 hetmanów tak, aby żadne dwa nie zagrażały sobie nawzajem).
+
+$H(x, y)$ – na polu w wierszu $x$ i kolumnie $y$ znajduje się hetman.
+
+Znajduje się 8 hetmanów:
+
+$ forall x (1 <= x <= n => exists y (1 <= y <= n and H(x,y))) $
+
+Nie atakują się:
+
+$
+  forall x_1, y_1, x_2, y_2 (1 <= x_1, y_1, x_2, y_2 <= 8 and (x_1 != x_2 or y_1 != y_2) and H(x_1, y_1) and H(x_2, y_2) \
+    => (x_1 != x_2 and y_1 != y_2 and x_1 + y_1 != x_2 + y_2 and x_1 - y_1 != x_2 - y_2))
+$
 
 Problem
 
