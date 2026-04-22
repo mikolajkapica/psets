@@ -144,6 +144,28 @@ Problem 6
 Uzasadnić, że rodzina rozkładów normalnych $cal(N)(mu,1)$ z parametrem $mu in
 bb(R)$ jest rodziną zupełną.
 
+Gęstość:
+
+$
+  p(x; mu)
+  &= 1/sqrt(2 pi) exp(- (x-mu)^2/(2)) \
+  &= 1/sqrt(2 pi) exp(- (x^2)/2 + x mu - (mu^2)/2) \
+  &= underbrace(1/sqrt(2 pi) exp(-(x^2)/2), h(x)) exp(underbrace(mu, eta_1 (mu)) underbrace(x, T_1 (x)) - underbrace((-(mu^2)/2), B(mu)))
+$
+
+Zatem $X$ ma rozkład z wykładniczej rodziny rozkładów rzędu 1. Jest to już
+postać kanoniczna (możemy zrobić $eta := mu$ i przepisać). Statystyka $T(X) =
+X$.
+
+Skoro $mu in RR$ to naturalna przestrzeń parametrów wynosi $RR$. Zatem zawiera
+$1$-wymiarowy prostokąt, np. $(0,1)$.
+
+Zatem na mocy twierdzenia Lehmann'a mamy że statystyka T(X) = X jest zupełna, czyli cała
+rodzina jest zupełna.
+
+
+
+
 Problem 7
 
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu normalnego
@@ -160,6 +182,44 @@ Problem 8
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu jednostajnego $cal(U)(0;
   theta)$, $theta in (0, oo)$. Pokazać, że $T(X)=X_((n))$ jest minimalną i zupełną
 statystyką dostateczną.
+
+Gęstość:
+
+$
+  p(x; theta) & = product_(i=1)^n 1/theta bb(1)_((0, theta)) (x_i) \
+  & = underbrace(bb(1)_((0, oo)) (min_i x_i), h(x)) dot underbrace(bb(1)_((-oo, theta)) (max_i x_i) 1/theta^n, g_theta (T(x))) \
+$
+
+Z twierdzenia o faktoryzacji mamy że $T(X) = max_i X_i = X_((n))$.
+
+$F_T (t) = P(X_((n)) <= t) = P(X_1 <= t, ..., X_n <= t) = (t/theta)^n dot bb(1)_((0, theta)) (t)$
+
+$f_T (t) = (n t^(n-1))/theta^n dot bb(1)_((0, theta)) (t)$
+
+$
+  E_theta [g(T)] = integral_0^theta g(t) f_T (t) "d"t
+  = integral_0^theta g(t) (n t^(n-1))/theta^n dot bb(1)_((0, theta)) (t) "d"t
+  = n/theta^n integral_0^theta g(t) t^(n-1) (t) "d"t =^? 0
+$
+
+$ integral_0^theta g(t) t^(n-1) (t) "d"t = 0 quad forall_(theta in (0, oo)) $
+
+Skoro $g_theta >= 0$ i całkujemy po dodatnich $t$ to powyższe stwierdzenie jest
+spełnione tylko dla \ $forall_theta space g = 0 space P_theta "- p.w."$. Zatem
+spełniony jest warunek dla statystyki zupełnej.
+
+Minmalność z kryterium.
+
+$
+  f(x;theta)/f(y;theta) = (bb(1)_((0, theta))(x)) / (bb(1)_((0, theta))(y))
+$
+
+Załóżmy, że implikacja nie zależy od $theta$, wtedy $x_((n)) = y_((n))$. Zatem $T(X) = X_((n))$ jest minalną statystyką dostateczną.
+
+
+
+
+
 
 Problem 9
 
