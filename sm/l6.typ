@@ -43,6 +43,23 @@ statystykę dostateczną dla $theta$, tego samego wymiaru co $theta$, gdy:
 + $P_theta$ jest rozkładem Weibulla $cal(W)e(alpha,theta)$ ze znanym $alpha$ i
   $theta in (0, oo)$.
 
+#note[
+  *Kryterium faktoryzacji*: \
+  $T(x)$ jest dostateczna, jeśli $g_theta, h >= 0$ i $f(x; theta) = g_theta (T(x)) dot h(x) "-" mu "p.n"$ \
+  Następstwem jest to że w rodzinie wykładniczej $T(X) = T_1 (X) + ... + T_k (X)$ \
+  i jesli mamy n rozkładów iid X_i to $T(X) = (sum_(i=1)^n T_1 (x_i), ..., sum_(i=1)^n T_k (x_i))$.
+]
+
+Rozwiązania:
+
+1. $P_theta$ jest rozkładem Poissona $cal(P)(theta)$, $theta in (0, oo)$;
+
+
+
+
+
+
+
 Problem
 
 Pokazać, że jeśli $T$ jest statystyką dostateczną dla $P$ oraz $T=g(S)$ dla

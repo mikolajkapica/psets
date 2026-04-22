@@ -16,3 +16,10 @@
   }
   it
 }
+
+
+#let note = it => box(stroke: 1pt, radius: 6pt, width: 100%, fill: color.silver)[
+  #pad(8pt)[
+    #it
+  ]
+]
