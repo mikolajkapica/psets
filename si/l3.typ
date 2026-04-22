@@ -1,9 +1,9 @@
-#import "lib.typ": * 
+#import "../lib.typ": *
 #show: styling
 
 sztuczna inteligencja - lista 3 - algorytmiczne wnioskanie w rachunku zdań
 
-Problem 
+Problem
 
 Uzasadnić metodą rezolucji zasadę szufladkową Dirichleta dla czterech obiektów i
 trzech szufladek: zapisać odpowiednie warunki jako formuły rachunku zdań i
@@ -16,9 +16,9 @@ faktycznie systematycznie wyprowadzali wszystkie możliwe rezolwenty w kolejnych
 iteracjach.
 
 
-Problem 
+Problem
 
-Rozważmy następujący graf z czterema wierzchołkami: 
+Rozważmy następujący graf z czterema wierzchołkami:
 
 #image("assets/Zrzut ekranu 2026-04-15 201909.png")
 
@@ -56,7 +56,7 @@ Zajmijmy się wskazówką.
 - Klauzul dwuelementowych mamy maksymalnie $binom(2n, 2) = 2n^2 - n$
 - Czyli maksymalnie mamy $2n^2 + n$ klauzul
 
-Fakt. Rezolucja nie zwiększa długości 
+Fakt. Rezolucja nie zwiększa długości
 - $(A or B)$ z ($not B or C)$, dostajemy ($A or C$) (nadal 2-CNF)
 - $(A or B)$ z ($not B)$, dostajemy ($A$) (1-CNF)
 - $(A)$ z ($not A)$, dostajemy sprzeczność
@@ -79,24 +79,24 @@ Zakładam, że formuła k-CNF ma zawsze k elementów w każdej klauzuli. Z n sym
 wybieramy k symboli, które będą w klauzulach $binom(n, k)$. Teraz wybieramy,
 które z tych symboli są zaprzeczone na $2^k$ sposobów. Mam teraz $binom(n, k)
 dot
-2^k$ klauzul. Formuła to podzbiór klauzul, czyli jest ich $2 ^ (binom(n,k) dot 2^k)$.
+2^k$ klauzul. Formuła to podzbiór klauzul, czyli jest ich $2^(binom(n, k) dot 2^k)$.
 
 
 Problem
 
 Rozważmy następującą bazę wiedzy:
-- $P => Q$ (1) 
-- $L and M => P$ (2) 
-- $B and L => M$ (3) 
-- $A and P => L$ (4) 
-- $A and B => L$ (5) 
-- $A$ (6) 
-- $B$ (7) 
+- $P => Q$ (1)
+- $L and M => P$ (2)
+- $B and L => M$ (3)
+- $A and P => L$ (4)
+- $A and B => L$ (5)
+- $A$ (6)
+- $B$ (7)
 
 + Porównać zachowanie algorytmów forward-chaining, backward-chaining oraz
   rezolucji przy zadaniu wyprowadzenia Q z tej bazy wiedzy.
 + Jak zastosować algorytm DPLL do wyprowadzenia Q z tej bazy wiedzy? Który
-  algorytm wnioskowania będzie to najbardziej przypominać w działaniu? 
+  algorytm wnioskowania będzie to najbardziej przypominać w działaniu?
 
 Algorytm forward-chaining:
 
@@ -132,7 +132,7 @@ Musimy przetransformować bazę wiedzy na CNF.
 - Wrzucamy $not L or not M or P$ dostajemy $not L or not M$
 - Wrzucamy $not B or not L or M$ dostajemy $not B or not L$
 - Wrzucamy $not A or not B or L$ dostajemy $not B or not A$
-- Wrzucamy $A$ i dostajemy $not B$ 
+- Wrzucamy $A$ i dostajemy $not B$
 - Wrzucamy $B$ i dostajemy sprzeczność $square$
 - Zatem $Q$.
 
@@ -161,13 +161,3 @@ Algorytm DPLL:
 Działanie na tej bazie wiedzy najbardziej przypomina forward-chaining, bo
 zaczynamy od klauzul unarnych $A$, $B$ i korzystamy dalej z propagacji (jak $A$
 to wystąpienia $not A$ możemy usunąć.
-
-
-
-
-
-
-
-
-
-
