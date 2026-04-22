@@ -121,7 +121,13 @@ $forall_(x,y) ("Rodzenstwo"(x,y) <=> exists_r ("Rodzic"(r,x) and "Rodzic"(r,y)))
 
 i. Uzasadnić, że $forall_(x,y) ("Rodzenstwo"(x, y) "..." "Rodzenstwo"(y, x))$
 
+symetria $and$
+
 ii. Uzasadnić, że $forall_x "Rodzenstwo"(x,x)$. Jak skorygować definicję predykatu "Rodzenstwo", aby uniemożliwić ten wynik?
+
+Aksjomat: $forall_x "Rodzenstwo"(x,x) <=> exists_r ("Rodzic"(r,x) and "Rodzic"(r,x))$
+
+Zatem: $forall_x "Rodzenstwo"(x,x) <=> exists_r ("Rodzic"(r,x))$. A każdy "ma" rodzica.
 
 c) Sprawdzić, jaki rodzaj relacji oznacza sformułowanie m-th cousin n times removed" (np. third cousin twice removed), zapisać odpowiedni predykat.
 
