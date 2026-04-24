@@ -11,7 +11,7 @@
     } else {
       problem.step()
     }
-    // pagebreak()
+    pagebreak()
     context line(length: 100%)
     context text(weight: "bold", [Problem #problem.display()])
   }
