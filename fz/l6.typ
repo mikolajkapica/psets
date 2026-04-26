@@ -278,9 +278,29 @@ Znajdź promienie zbieżności szeregów potęgowych i zbadaj zachowanie szeregu
 
   - $a_n = 1/n$ #h(4pt) ($in RR$, $arrow.br 0$)
 
-  - $b_n = i^n/(1+i) dot 1$ #h(4pt) ($abs(sum_(k=1)^N i^n/(1+i) 1^(3n)) <= sum_(k=1)^N 1/sqrt(2)$ - bounded)
+  - $b_n = i^n/(1+i) dot z^(3n)$ #h(4pt)
 
-  Then $S = sum_(n=1)^oo a_n b_n$ converges
+  $abs(sum_(k=1)^N i^n/(1+i) z^(3n)) =
+    abs(1/(1+i) sum_(k=1)^N i^n z^(3n)) =
+    abs(1/(1+i)) abs(sum_(k=1)^N i^n z^(3n)) =
+    1/sqrt(2) abs(sum_(k=1)^N i^n z^(3n)) = \
+    1/sqrt(2) abs((1 - (i z^3)^(N+1))/(1-i z^3)) <=
+    1/sqrt(2) (2)/abs((1-i z^3)) <= M quad forall_(z in {z in CC | abs(z) = 1 space and space 1 - i z^3 != 0})$
+
+  $z^3 = -i = e^(-i pi/2)$
+
+  $z_1 = e^(-i pi/6)$
+
+  $z_2 = e^(-i pi/6 + (2pi)/3)$
+
+  $z_3 = e^(-i pi/6 + (4pi)/3)$
+
+  Converges for all $z "st." abs(z) <= 1 "except for" z_1, z_2, z_3$
+
+
+
+
+
 
   #v(20pt)
 
@@ -334,7 +354,7 @@ Znajdź promienie zbieżności szeregów potęgowych i zbadaj zachowanie szeregu
 
   $b_n = q^n$ - geom.
 
-  $abs(sum_(k=1)^N b_k) <= sum_(k=1)^N abs((1-q^(N+1))/(1-q)) <= sum_(k=1)^N (1+1)/abs(1-q) <= M$, o ile $q != 1$
+  $abs(sum_(k=1)^N b_k) <= abs((1-q^(N+1))/(1-q)) <= (1+1)/abs(1-q) <= M$, o ile $q != 1$
 
   $q = 1 <==> (1+i)/sqrt(2) dot z^2 = 1 <==> z^2 = sqrt(2)/(1+i) = (sqrt(2) (1-i)) / 2 = sqrt(2)/2 - sqrt(2)/2 i = e^(- i pi/4)$
 
@@ -342,14 +362,76 @@ Znajdź promienie zbieżności szeregów potęgowych i zbadaj zachowanie szeregu
 
   Thus the series converges on ${z in CC mid(|) abs(z)<=1 and z != plus.minus e^(-i pi/8) }$
 
-
-
-
 + $sum_(n=1)^oo z^(3n)/n^3$
+
+  $1/R = lim_(n->oo) (n^3 + 3n^2 + 3n + 1)/n^3 = lim_(n->oo) (1 + 3/n + 3/n^2 + 1/n^3) = 1 ==> R = 1$
+
+  Dirichlet:
+
+  $a_n = 1/n$ ($in RR$, $arrow.br 0$)
+
+  $b_n = z^(3n)/n^2$
+
+  $abs(sum_(k=1)^N b_k) < sum_(k=1)^N 1/k^2 < sum_(k=1)^oo 1/k^2 = 2$
+
+  Thus the series converges on ${z in CC mid(|) abs(z)<=1 }$
 
 + $sum_(n=0)^oo ((-1)^n (z-i)^n)/((n+2) 3^n)$
 
+  $1/R = limsup_(n->oo) root(n, abs(((-1)^n)/((n+2) 3^n))) = limsup_(n->oo) abs(1/(3 root(n, n+2))) = 1/3 ==> R = 3$
+
+  Dirichlet:
+
+  $a_n = 1/(n+2)$
+
+  $b_n = ((-1)^n (z-i)^n)/(3^n) = q^n$
+
+  $abs(sum_(k=0)^N b_k) = abs((1 - q^(N+1))/(1-q)) <= (1 + 1)/(1 - q) <= M quad forall_(z in { abs(z - i) = 3 mid(|) ((-1) (z-i))/(3) != -1})$
+
+  $-1 = -(z - i)/3 <=> 3 = z - i <=> z = 3 + i$
+
+  Converges for ${z in CC mid(|) abs(z - i) <= 3 and z != 3 + i}$.
+
+
 + $sum_(n=0)^oo n^2/(n^2+1) z^n$
+
+  $R = lim_(n->oo) abs((((n+1)^2)/((n+1)^2 + 1))/((n^2)/((n+1)^2 + 1))) = 1$
+
+  Edge ($R = 1$)
+
+  $z^n n^2/(1+n^2) = z^n (n^2+1-1)/(1+n^2) = z^n (1-1/(1+n^2)) = z^n - z^n/(1+n^2)$
+
+  Define three sequences $a_k = sum_(n=0)^k z^n, space b_k = sum_(n=0) z^n/(1+n^2), space c_k = sum_(n=0)^k n^2/(n^2 + 1) z^n$.
+
+  $a_k = b_k + c_k$
+
+  - Let's assume that $c_k$ converges.
+
+  - $b_k$ converges since it converges absolutely:
+  $
+    space sum_(n=0)^k abs(z^n/(1+n^2)) = sum_(n=0)^k 1/(1+n^2) <= 1 + sum_(n=1)^k 1/(n^2) < 3
+  $
+
+  By the sum rule $a_k$ converges.
+
+  But for any $|z| = 1$ $a_k$ diverges:
+  - $z = 1 ==> sum_n 1 = oo$
+  - $z != 1 ==> sum_n underbrace(abs(z), 1) e^(n i phi)$ this will always rotate thus never converge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Problem
 Rozważmy szereg potęgowy $sum_(n=1)^oo a_n (z-1-2i)^n$. Czy szereg ten, dla pewnego ciągu $a_n$ może być jednocześnie zbieżny w punkcie $z_1 = -3+i$ i rozbieżny w $z_2 = 5-3i$?
@@ -373,12 +455,61 @@ Simplest case: $a_n = 1/5^n$ then $a_(n+1) / a_n = (1/5^(n+1)) / (1/5^n) =
 
 
 Problem
-Rozwiń funkcję $f(z)$ w szereg potęgowy wokół punktu $a$ i oblicz promień zbieżności otrzymanego szeregu dla:
+// Rozwiń funkcję $f(z)$ w szereg potęgowy wokół punktu $a$ i oblicz promień zbieżności otrzymanego szeregu dla:
+
+Expand the function $f(z)$ into a power series around point $a$ and calculate the radius of convergence of the obtained series for:
 
 a) $f(z) = z/(1-z)$, $a=i$
 
+   $f(z) &= (z - i + i)/(1-z)
+     = (z - i)/(1-z) + i/(1-z)
+     = (z - i)/(1-z-i+i) + i/(1-z-i+i)
+     = (z - i)/((1-i)-(z-i)) + i/((1-i)-(z-i)) \
+     &= (z - i)/(1-i) dot 1/(1-((z-i)/(1-i))) + i/(1-i) dot 1/(1-((z-i)/(1-i))) \
+     &= (z - i)/(1-i) dot sum_(n=0)^oo ((z-i)/(1-i))^n  + i/(1-i) dot sum_(n=0)^oo ((z-i)/(1-i))^n \
+     &= sum_(n=1)^oo 1/(1-i)^(n) dot (z - i)^(n) + sum_(n=0)^oo i/(1-i)^(n+1) dot (z-i)^n \
+     &= sum_(n=1)^oo 1/(1-i)^(n) dot (z - i)^(n) + sum_(n=0)^oo i/(1-i)^(n+1) dot (z-i)^n \
+     &= sum_(n=0)^oo a_n dot (z - i)^(n)
+   $
+
+   where $a_n = cases(
+     i/(1-i) &"for" n = 0,
+     (1)/(1-i)^(n+1)  &"otherwise"
+   )$
+
+   Radius. We know that the power series only stop converging at poles of the
+   function. $f(z) = 1/(1-1/z)$ then the pole is $z = 1$. We're centered at
+   $z=i$. The radius is the distance from $1$ to $i$ which is $sqrt(2)$.
+
 b) $f(z) = 1/(z^2-5z+6)$, $a=0$
+
+   $f(z) = 1/((z-2)(z-3))
+     = (-1)/(z-2) + 1/(z-3)
+     = 1/2 dot 1/(1 - z/2) - 1/3 dot 1/(1 - z/3)
+     = 1/2 sum_(n=0)^oo (z/2)^n - 1/3 sum_(n=0)^oo (z/3)^n \
+     = 1/2 sum_(n=0)^oo 1/2^n dot z^n - 1/3 sum_(n=0)^oo 1/3^n dot z^n
+     = sum_(n=0)^oo 1/2^(n+1) dot z^n - sum_(n=0)^oo 1/3^(n+1) dot z^n \
+     = sum_(n=0)^oo (1/2^(n+1) - 1/3^(n+1)) dot z^n \
+     = sum_(n=0)^oo ((3^(n+1)-2^(n+1))/6^(n+1)) dot z^n
+   $
+
+   Radius: $R = 2$
 
 c) $f(z) = 1/(3-z)$, $a=4i$
 
+   $f(z) = 1/(3+4i) dot 1/(1-(z-4i)/(3+4i)) = \
+      = 1/(3+4i) dot sum_(n=0)^oo ((z-4i)/(3+4i))^n = \
+      = 1/(3+4i) dot sum_(n=0)^oo 1/(3+4i)^n dot (z-4i)^n = \
+      = sum_(n=0)^oo 1/(3+4i)^(n+1) dot (z-4i)^n = \
+   $
+
+   Radius $R = sqrt(3^2 + 4^2) = 5$
+
 d) $f(z) = e^z$, $a=2$
+
+   $f(z) = e^(z-2+2) = e^2 dot e^(z-2)  \
+     = e^2 dot sum_(n=0)^oo (z-2)^n/n! \
+     = sum_(n=0)^oo e^2/n! (z-2)^n \
+   $
+
+   Radius $R = oo$
