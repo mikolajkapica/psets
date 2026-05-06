@@ -83,25 +83,39 @@ $cal(B)(1,p)$, $p in (0,1)$.
 
   Niech $dash(p) = T/n$. Wtedy $W = n/(n-1) dot dash(p)(1-dash(p))$.
 
-  + *Zgodność:* $dash(p) ->^(P) p$ (z PPN), $n/(n-1) -> 1$,
-    więc $W ->^(P) p(1-p)$ -- estymator jest zgodny.
+  + Zgodność: $dash(p) ->^(PP) p$ (z PWL), $n/(n-1) -> 1$,
+    więc $W ->^(PP) p(1-p)$ -- estymator jest zgodny.
 
   + *$sqrt(n)$-zgodność i asymptotyczna normalność:*
-    Z CLT $sqrt(n)(dash(p) - p) ->^d cal(N)(0, p(1-p))$.
 
-    Z metody delty dla $g(p) = p(1-p)$, $g'(p) = 1 - 2p$:
+    Skorzystamy z CTG w postaci:
     $
-      sqrt(n)(g(dash(p)) - g(p)) ->^d cal(N)(0, [g'(p)]^2 p(1-p))
+      U_n = (dash(p) - mu) / (sigma / sqrt(n)) ->^d cal(N)(0, 1)
     $
-    czyli $sqrt(n)(dash(p)(1-dash(p)) - p(1-p)) ->^d cal(N)(0, (1-2p)^2 p(1-p))$.
+    U nas $mu = p$ oraz $sigma = sqrt(p dot (1-p))$.
+    Przekształcamy ułamek (mnożymy licznik i mianownik przez $sqrt(n)$), otrzymując:
+    $
+      sqrt(n) dot (dash(p) - p) / sigma ->^d cal(N)(0, 1)
+    $
+    Co jest równoważne stwierdzeniu, że:
+    $
+      sqrt(n) * (dash(p) - p) ->^d cal(N)(0, sigma^2)
+    $
+    czyli $cal(N)(0, p * (1-p))$.
 
-    Ponieważ $sqrt(n)(W - g(p)) = sqrt(n)(n/(n-1) dash(p)(1-dash(p)) - p(1-p))$
-    $= sqrt(n)(dash(p)(1-dash(p)) - p(1-p)) + sqrt(n) dot 1/(n-1) dash(p)(1-dash(p))$,
-    a drugi wyraz $-> 0$, to $W$ ma ten sam rozkład graniczny:
+    Nasz estymator $W$ jest funkcją $g(dash(p))$, gdzie $g(x) = x * (1-x)$.
+    Z metody delty wynika, że:
+    $ sqrt(n) * (g(dash(p)) - g(p)) approx g'(p) * [sqrt(n) * (dash(p) - p)] $
+
+    Wyrażenie w nawiasie dąży do $cal(N)(0, sigma^2)$.
+    Mnożenie zmiennej normalnej przez stałą $g'(p)$ zmienia wariancję na $[g'(p)]^2 * sigma^2$.
+    Ponieważ $g'(x) = 1 - 2x$, wariancja graniczna to $(1 - 2p)^2 * p * (1-p)$.
+
+    Ostatecznie:
     $
-      sqrt(n)(W - p(1-p)) ->^d cal(N)(0, (1-2p)^2 p(1-p))
+      sqrt(n) * (W - p * (1-p)) ->^d cal(N)(0, (1-2p)^2 * p * (1-p))
     $
-    Estymator jest $sqrt(n)$-zgodny i asymptotycznie normalny.
+    Estymator jest asymptotycznie normalny.
 
 
 Problem 4
@@ -115,6 +129,155 @@ Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu
 + jednostajnego $cal(U)(theta - 1/2, theta + 1/2)$, $theta in bb(R)$;
 + jednostajnego $cal(U)(alpha, beta)$, $alpha, beta in bb(R)$, $alpha < beta$, $theta=(alpha, beta)$.
 Dla każdej z tych rodzin rozkładów wyznaczyć statystykę dostateczną i zupełną dla parametru $theta$.
+
+Rozwiązania:
+
+Korzystamy z następującej obserwacji: jeśli $S$ jest statystyką dostateczną i
+zupełną, a $T=h(S)$, to $T$ też jest zupełna. Zatem jeżeli minimalna statystyka
+dostateczna nie jest zupełna, to nie istnieje żadna statystyka jednocześnie
+dostateczna i zupełna.
+
++ $X_i ~ cal(N)(a theta, theta^2)$, $theta > 0$.
+
+  Gęstość próby:
+  $
+    f(bold(x); theta) & = product_(i=1)^n 1/(sqrt(2 pi) theta)
+                        exp(- (x_i - a theta)^2/(2 theta^2)) \
+                      & = (2 pi)^(-n/2) theta^(-n)
+                        exp(
+                          -1/(2 theta^2) sum_(i=1)^n x_i^2
+                          + a/theta sum_(i=1)^n x_i
+                          - (n a^2)/2
+                        ).
+  $
+
+  Z kryterium faktoryzacji statystyką dostateczną jest
+  $
+    T(X) = (sum_(i=1)^n X_i, sum_(i=1)^n X_i^2).
+  $
+  Jest ona także minimalna, bo iloraz $f(bold(x);theta)/f(bold(y);theta)$
+  jest równy
+  $
+    f(bold(x);theta)/f(bold(y);theta)
+    = exp(
+      -1/(2 theta^2) [sum_(i=1)^n x_i^2 - sum_(i=1)^n y_i^2]
+      + a/theta [sum_(i=1)^n x_i - sum_(i=1)^n y_i]
+    ).
+  $
+  i nie zależy on od $theta$ wtedy i tylko wtedy, gdy
+  $
+    sum_(i=1)^n x_i = sum_(i=1)^n y_i
+    quad "oraz" quad
+    sum_(i=1)^n x_i^2 = sum_(i=1)^n y_i^2.
+  $
+
+  Nie jest ona zupełna (dla $n >= 2$). Rzeczywiście
+  $
+    EE_theta (sum_(i=1)^n X_i)^2 & = "Var"_theta (sum_(i=1)^n X_i)
+                                   + (EE_theta sum_(i=1)^n X_i)^2 \
+                                 & = n theta^2 + n^2 a^2 theta^2
+                                   = n(1 + n a^2) theta^2,
+  $
+  oraz
+  $
+    EE_theta sum_(i=1)^n X_i^2
+    = n (theta^2 + a^2 theta^2)
+    = n(1 + a^2) theta^2.
+  $
+  Zatem dla
+  $
+    g(T) = (sum_(i=1)^n X_i)^2
+    - (1 + n a^2)/(1 + a^2) sum_(i=1)^n X_i^2
+  $
+  mamy $EE_theta g(T) = 0$ dla każdego $theta > 0$, ale $g(T)$ nie jest równe
+  $0$ prawie na pewno (np. dla $n >= 2$). Stąd $T$ nie jest zupełna. Ponieważ
+  $T$ jest minimalną statystyką dostateczną w tej rodzinie wykładniczej
+  zakrzywionej, nie istnieje statystyka jednocześnie dostateczna i zupełna.
+
++ $X_i ~ cal(U)(theta - 1/2, theta + 1/2)$, $theta in bb(R)$.
+
+  Gęstość próby ma postać
+  $
+    f(bold(x); theta)
+    = product_(i=1)^n bb(1)_([theta - 1/2, theta + 1/2])(x_i)
+    = bb(1)_([x_((n)) - 1/2, x_((1)) + 1/2])(theta).
+  $
+  Zatem z kryterium faktoryzacji statystyką dostateczną jest
+  $
+    T(X) = (X_((1)), X_((n))).
+  $
+  Minimalność wynika z kryterium ilorazu gęstości: jeśli
+  $
+    f(bold(x);theta)/f(bold(y);theta)
+    = (bb(1)_([x_((n)) - 1/2, x_((1)) + 1/2])(theta)) /
+    (bb(1)_([y_((n)) - 1/2, y_((1)) + 1/2])(theta)).
+  $
+  Ten iloraz nie zależy od $theta$ tylko wtedy, gdy przedziały dopuszczalnych
+  wartości parametru są takie same, czyli
+  $x_((1)) = y_((1))$ i $x_((n)) = y_((n))$.
+
+  Statystyka ta nie jest zupełna. Rozstęp
+  $
+    R = X_((n)) - X_((1))
+  $
+  ma rozkład niezależny od $theta$; dla próby z rozkładu jednostajnego na
+  odcinku długości $1$ zachodzi
+  $
+    EE_theta R = (n - 1)/(n + 1).
+  $
+  Dlatego
+  $
+    g(T) = X_((n)) - X_((1)) - (n - 1)/(n + 1)
+  $
+  spełnia $EE_theta g(T) = 0$ dla każdego $theta$, lecz nie jest równa $0$
+  prawie na pewno. Stąd nie ma tutaj statystyki dostatecznej i zupełnej.
+
++ $X_i ~ cal(U)(alpha, beta)$, $theta=(alpha,beta)$, $alpha < beta$.
+
+  Gęstość próby:
+  $
+    f(bold(x); alpha, beta)
+    = 1/(beta - alpha)^n
+    product_(i=1)^n bb(1)_([alpha, beta])(x_i)
+    = 1/(beta - alpha)^n
+    bb(1)_((-oo, x_((1))])(alpha)
+    bb(1)_([x_((n)), oo))(beta).
+  $
+  Z kryterium faktoryzacji statystyką dostateczną jest
+  $
+    T(X) = (X_((1)), X_((n))).
+  $
+
+  Pokażemy zupełność. Dla $x_((1)) < x_((n))$ gęstość wektora
+  $(X_((1)), X_((n)))$ wynosi
+  $
+    f_T(x_((1)), x_((n)); alpha,beta)
+      = (n(n-1) (x_((n))-x_((1)))^(n-2))/(beta-alpha)^n
+        bb(1)_(alpha < x_((1)) < x_((n)) < beta).
+  $
+  Niech $EE_(alpha,beta) g(T) = 0$ dla każdego $alpha < beta$. Wtedy
+  $
+    integral_alpha^beta integral_(x_((1)))^beta
+      g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) dif x_((n)) dif x_((1)) = 0
+    quad "dla każdych" alpha < beta.
+  $
+  Odejmując od tej równości analogiczne równości dla przedziałów
+  $(alpha, c)$ i $(c, beta)$, dostajemy dla każdego
+  $alpha < c < beta$:
+  $
+    integral_alpha^c integral_c^beta
+      g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) dif x_((n)) dif x_((1)) = 0.
+  $
+  A więc całka funkcji
+  $g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2)$ po dowolnym prostokącie zawartym w
+  zbiorze ${x_((1)) < x_((n))}$ jest równa $0$. Stąd
+  $g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) = 0$ prawie wszędzie, czyli
+  $g(T)=0$ prawie na pewno.
+  Zatem
+  $
+    T(X) = (X_((1)), X_((n)))
+  $
+  jest statystyką dostateczną i zupełną dla $theta=(alpha,beta)$.
 
 Problem 6
 Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U)(alpha, beta)$, $alpha, beta in bb(R)$, $alpha < beta$.
