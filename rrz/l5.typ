@@ -24,7 +24,7 @@ Mamy $(dPhi)/(dy) P - (dPhi)/(dx) Q = 0$, wtedy $df/dPhi dPhi/dy P - df/dPhi
 dPhi dx Q = 0$
 
 $
-gradient Phi = mat(df/dPhi, dPhi/dx; df/dPhi, dPhi/dy)
+  gradient Phi = mat(df/dPhi, dPhi/dx; df/dPhi, dPhi/dy)
 $
 
 $ Phi "to całką RL" <=> Phi "to całka" mu "RL" $
@@ -32,15 +32,16 @@ $ Phi "to całką RL" <=> Phi "to całka" mu "RL" $
 Problem
 
 Assume that $mu in C^1(D)$ is non-zero on $D$. Show that then $Phi : D -> RR$ is an integral of equation (RL) if and only if it is an integral of equation
-$ mu(x,y)P(x,y) d x + mu(x,y)Q(x,y) d y = 0. $ <RLmi>
+$ mu(x, y)P(x,y) d x + mu(x, y)Q(x,y) d y = 0. $ <RLmi>
 
-$ P(x,y) dx + Q(x,y) dy = 0 \
-F "i" D -> RR \
-"że" F_x = P, F_y = Q "w D" \
-F - "f.pierwotna"  \
-F_x dx + F_y dy = 0 \
-dF = 0 \
-F(x,y) = C
+$
+  P(x,y) dx + Q(x,y) dy = 0 \
+  F "i" D -> RR \
+  "że" F_x = P, F_y = Q "w D" \
+  F - "f.pierwotna" \
+  F_x dx + F_y dy = 0 \
+  dF = 0 \
+  F(x,y) = C
 $
 
 chyba jakas intuicja ze $gradient F || (P, Q)$, wektor jest rownolegly do samego
@@ -50,7 +51,7 @@ Problem
 
 Let $J$ be an interval and $Phi : D -> J$ an integral of equation (RL). Let $f : J -> RR$ be a function of class $C^1$ such that $f' != 0$ on $J$. Justify that $f compose Phi$ is an integral of this equation.
 
-Equation (RL) is called exact if the vector field $(P,Q)$ is exact. The function $mu(x,y)$ is called an integrating factor of equation (RL) if equation (RLmi) is exact.
+Equation (RL) is called exact if the vector field $(P,Q)$ is exact. The function $mu(x, y)$ is called an integrating factor of equation (RL) if equation (RLmi) is exact.
 
 Problem
 
@@ -66,13 +67,13 @@ $(=>)$
 
 $RL_mu "? jest zupełne"$
 
-Zatem istnieje $F(x, y)$ taka ze $dF = mu(x,y) P(x,y) dx + mu(x,y) Q(x,y) dy =
-mu(x,y) (P(x,y) dx + Q(x,y) dy)$
+Zatem istnieje $F(x, y)$ taka ze $dF = mu(x, y) P(x,y) dx + mu(x, y) Q(x,y) dy =
+mu(x, y) (P(x,y) dx + Q(x,y) dy)$
 
 jakieś średnie to rozwiązanie, lepiej
 
 $
-F = integral_(x_0, y_0)^(x, y) P dx + Q dy
+  F = integral_(x_0, y_0)^(x, y) P dx + Q dy
 $
 
 cos twierdzenie greena. ze droga calkowania nie jest istotna.
@@ -82,8 +83,8 @@ $(<==)$
 
 Zatem istnieje $h(x,y) != 0$ taka ze
 $
-dPhi = h(x,y)( P(x,y) dx + Q(x,y) dy) = underbrace(h(x,y) P dx, Phi_y) +
-underbrace((x,y) Q(x,y) dy, Phi_x)
+  dPhi = h(x,y)( P(x,y) dx + Q(x,y) dy) = underbrace(h(x,y) P dx, Phi_y) +
+  underbrace((x,y) Q(x,y) dy, Phi_x)
 $
 
 Problem
@@ -93,7 +94,7 @@ Find the necessary and sufficient condition for the differential equation (RL) t
 
   $
     mu(x+y)P(x,y) dx + mu(x+y)Q(x,y) dy = 0 \
-    "aby było zupełne: " partial/(partial x) mu(x+y)P = partial/(partial y) mu(x+y)Q  \
+    "aby było zupełne: " partial/(partial x) mu(x+y)P = partial/(partial y) mu(x+y)Q \
     mu' P + mu P_x = mu' Q + mu Q_y \
     mu' (P - Q) = mu (Q_y - P_x) \
     mu'/mu = (Q_y - P_x)/(P - Q) \
@@ -117,9 +118,9 @@ Find the necessary and sufficient condition for the differential equation (RL) t
 
   $
     dvps(mu(x^2 - y^2) P, y) = dvps(mu(x^2 - y^2) Q, x) \
-    mu' (-2y) P + mu P_y =  mu' (-2x) Q + mu Q_x \
-    mu' ((-2y) P - (-2x) Q) = mu (Q_x - P_y)  \
-    mu' / mu = (Q_x - P_y)/(- 2y P + 2x Q)  \
+    mu' (-2y) P + mu P_y = mu' (-2x) Q + mu Q_x \
+    mu' ((-2y) P - (-2x) Q) = mu (Q_x - P_y) \
+    mu' / mu = (Q_x - P_y)/(- 2y P + 2x Q) \
   $
 
   Zatem $u'/u$ musi zależeć wyłącznie od $x^2 - y^2$.
@@ -128,9 +129,9 @@ Find the necessary and sufficient condition for the differential equation (RL) t
 
   $
     dvps(mu(x^2 + y^2) P, y) = dvps(mu(x^2 + y^2) Q, x) \
-    mu' (2y) P + mu P_y =  mu' (2x) Q + mu Q_x \
-    mu' (2y P - 2x Q) = mu (Q_x - P_y)  \
-    mu' / mu = (Q_x - P_y)/(2y P - 2x Q)  \
+    mu' (2y) P + mu P_y = mu' (2x) Q + mu Q_x \
+    mu' (2y P - 2x Q) = mu (Q_x - P_y) \
+    mu' / mu = (Q_x - P_y)/(2y P - 2x Q) \
   $
 
   Zatem $u'/u$ musi zależeć wyłącznie od $x^2 + y^2$.
@@ -142,20 +143,20 @@ Find the integrals of the differential equations:
 + $2x y d x + (x^2 - y^2) d y = 0$
 
   $P(x,y) = 2x y \
-   Q(x,y) = x^2 - y^2$
+  Q(x,y) = x^2 - y^2$
 
   Czy zupełne?
 
   $P_y (x,y) = 2x \
-   Q_x (x,y) = 2x$
+  Q_x (x,y) = 2x$
 
   Tak.
 
-  $Phi_x = 2x y quad => quad Phi(x,y) = x^2 y + f(y) quad => quad Phi_y = x^2 + f'(y)$
+  $Phi_x = 2x y quad => quad Phi(x, y) = x^2 y + f(y) quad => quad Phi_y = x^2 + f'(y)$
 
   $Q = Phi_y <==> x^2 - y^2 = x^2 + f'(y) <==> f'(y) = -y^2 => f(y) = -1/3 y^3 + C$
 
-  Zatem $Phi(x,y) = x^2 y -1/3 y^3$.
+  Zatem $Phi(x, y) = x^2 y -1/3 y^3$.
 
   Całka: $x^2 y - 1/3 y^3 = C$
 
@@ -195,7 +196,7 @@ Find the integrals of the differential equations:
   $
     dvps(mu(x) P, y) = dvps(mu(x) Q, x) \
     mu P_y = mu' Q + mu Q_x \
-    mu'/mu  = (P_y - Q_x)/Q \
+    mu'/mu = (P_y - Q_x)/Q \
   $
 
   Ten iloraz musi zależeć od x.
@@ -223,9 +224,9 @@ Find the integrals of the differential equations:
 
   $P_y = -1, Q_x = -1$, zgadza się!
 
-  $Phi_x = 1/x^2 - y quad => Phi = -1/x - y x + C(y) quad => Phi_y = -x + C'(y) $
+  $Phi_x = 1/x^2 - y quad => Phi = -1/x - y x + C(y) quad => Phi_y = -x + C'(y)$
 
-  $Phi_y = Q <==> y-x = -x + C'(y) => C'(y) = y => C(y) = 1/2 y^2 + C $
+  $Phi_y = Q <==> y-x = -x + C'(y) => C'(y) = y => C(y) = 1/2 y^2 + C$
 
   Zatem całka ogólna wynosi:
 
