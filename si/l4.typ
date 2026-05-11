@@ -3,7 +3,7 @@
 
 sztuczna inteligencja - lista 4 - Rachunek predykatów
 
-Problem
+Zadanie
 
 Następujące zdania matematyczne zapisać w formalnym języku arytmetyki (ze stałymi 0 i 1 oraz funkcjami dwuargumentowymi i zapisywanymi w składni infiksowej).  Dla wygody można definiować pomocnicze predykaty (np Pierwsza(x) albo Dzieli(a, b)), ale oczywiście definicję każdego z nich trzeba zapisać formalnie.
 
@@ -71,7 +71,7 @@ m) Liczba a jest resztą z dzielenia liczby b przez c.
 
 $exists q (b = c dot q + a) and "Mniejsza"(a, c)$
 
-Problem
+Zadanie
 
 W języku arytmetyki liczb rzeczywistych (ze stałymi 0 i 1, funkcjami
 dwuargumentowymi $dot$ i $plus$, predykatem $<=$) rozszerzonym o symbol
@@ -108,7 +108,7 @@ $(forall x)(f(x) = x => x <= a) and (forall u)((forall x)(f(x) = x => x < u) => 
   <= u)$
 
 
-Problem
+Zadanie
 
 W tym zadaniu użyjemy rachunku predykatów, żeby opisać relacje pokrewieństwa.
 Przyjmiemy następujące predykaty wyjściowe: $"Kobieta"(x)$ oznacza, że z jest
@@ -131,7 +131,7 @@ Zatem: $forall_x "Rodzenstwo"(x,x) <=> exists_r ("Rodzic"(r,x))$. A każdy "ma" 
 
 c) Sprawdzić, jaki rodzaj relacji oznacza sformułowanie m-th cousin n times removed" (np. third cousin twice removed), zapisać odpowiedni predykat.
 
-Problem
+Zadanie
 Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować przydatne predykaty i zapisać odpowiednie formuły).  W razie potrzeby można korzystać z predykatów, stałych i funkcji arytmetycznych (np. $x < y$ czy $y = x + 7$) bez ich definiowania.
 
 a) Zasada szufladkowa.
@@ -187,7 +187,7 @@ $
     => (x_1 != x_2 and y_1 != y_2 and x_1 + y_1 != x_2 + y_2 and x_1 - y_1 != x_2 - y_2))
 $
 
-Problem
+Zadanie
 
 #let inv = "inv"
 
@@ -243,7 +243,7 @@ Zatem $e dot x = x$.
 
 
 
-Problem
+Zadanie
 Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej strukturze, a jest tautologią, jeśli jest prawdziwa we wszystkich strukturach.  Dla każdej z poniższych formuł ustalić, czy są spełnialne i czy są tautologiami.
 a) $(forall_x exists_y P(x,y)) => (exists_x forall_y P(x,y))$
 b) $(forall_x exists_y P(x,y)) => (exists_y forall_x P(x,y))$
@@ -255,7 +255,7 @@ f) $(P(x) => exists y Q(y)) => exists y (P(x) => Q(y))$
 g) $(forall x P(x) => Q(y)) => exists x (P(x) => Q(y))$
 h) $(forall x P(x) => Q(x)) => exists x (P(x) => Q(x))$
 
-Problem
+Zadanie
 Rozważmy aksjomatyzację rachunku zdań z tymi samymi aksjomatami co na poprzedniej liście i z trzema aksjomatami dotyczącymi kwantyfikatorów:
 a) $forall_x (A => B) => ((exists_x A) => B)$
 b) $forall_x A => A[x/t]$, gdzie t jest dowolnym termem, zaś $A[x/t]$ to formuła A, w której wszystkie wolne wystąpienia zastępujemy przez term t (ograniczenie: wt nie może występować żadna zmienna Y, która jest w A objęta kwantyfikatorem Qy).

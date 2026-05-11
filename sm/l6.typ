@@ -7,7 +7,7 @@
 
 statystka matematyczna | lista 6
 
-Problem 1
+Zadanie 1
 
 Niech $bold(X)=(X_1,...,X_n)$ będzie próbą losową z rozkładu Poissona
 $cal(P)(lambda)$, $lambda in (0, oo)$ i niech $T=sum_(i=1)^n X_i$. Znaleźć
@@ -25,7 +25,7 @@ $
 Rozkład warunkowy $bold(X)|T=t$ jest niezależny od $lambda$, zatem jest to statystyka dostateczna (trywialna).
 
 
-Problem 2
+Zadanie 2
 
 Niech $X_1,...,X_n$ będzie próbą losową z populacji o rozkładzie $P in
 cal(P)={P_theta, theta in Theta}$. Wykorzystując kryterium faktoryzacji znaleźć
@@ -94,7 +94,7 @@ Zatem
 
 $ T(bold(X)) = (sum_(i=1)^n ln(X_i), sum_(i=1)^n X_i) $
 
-Problem 3
+Zadanie 3
 
 Pokazać, że jeśli $T$ jest statystyką dostateczną dla $P$ oraz $T=g(S)$ dla
 pewnej statystyki $S$ i odwzorowania mierzalnego $g$, to $S$ jest statystyką
@@ -123,7 +123,7 @@ Intuicyjnie: skoro $S$ wyznacza jednoznacznie $T$ to $S$ niesie tę samą
 informację o rozkładzie co $T$.
 
 
-Problem 4
+Zadanie 4
 
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu o gęstości $ p_((theta,eta))=c(theta,eta)h(x)1_((theta,eta))(x), $ gdzie $h(x)$ jest ustaloną
 dodatnią funkcją całkowalną na $(-oo, oo)$. Udowodnić, że $(X_((1)),X_((n)))$
@@ -131,7 +131,7 @@ jest statystyką dostateczną dla parametru $(theta,eta) in bb(R) times bb(R)$.
 
 #text(size: 20pt)[BYŁO]
 
-Problem 5
+Zadanie 5
 
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu beta $cal(B)e(alpha,alpha)$,
 $alpha in (0, oo)$. Wyznaczyć minimalną statystykę dostateczną dla parametru
@@ -139,7 +139,7 @@ $alpha$. Uzasadnić, że jest to statystyka zupełna.
 
 #text(size: 20pt)[BYŁO]
 
-Problem 6
+Zadanie 6
 
 Uzasadnić, że rodzina rozkładów normalnych $cal(N)(mu,1)$ z parametrem $mu in
 bb(R)$ jest rodziną zupełną.
@@ -166,7 +166,7 @@ rodzina jest zupełna.
 
 
 
-Problem 7
+Zadanie 7
 
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu normalnego
 $cal(N)(theta,theta^2)$, $theta>0$. Wyznaczyć minimalną statystykę dostateczną
@@ -177,7 +177,7 @@ $bb(E)_theta(sum_(i=1)^n X_i)^2$.
 
 #text(size: 20pt)[BYŁO]
 
-Problem 8
+Zadanie 8
 
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu jednostajnego $cal(U)(0;
   theta)$, $theta in (0, oo)$. Pokazać, że $T(X)=X_((n))$ jest minimalną i zupełną
@@ -221,7 +221,7 @@ Załóżmy, że implikacja nie zależy od $theta$, wtedy $x_((n)) = y_((n))$. Za
 
 
 
-Problem 9
+Zadanie 9
 
 Niech $X_1,...,X_n$ będzie próbą losową z rozkładu jednostajnego
 $cal(U)(theta-1/2; theta+1/2)$, $theta in bb(R)$. Udowodnić, że

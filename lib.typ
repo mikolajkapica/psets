@@ -1,5 +1,5 @@
 #let problem = counter("problem")
-#let problem-heading = regex("Problem(?: (\\d+))?")
+#let problem-heading = regex("Zadanie(?: (\\d+))?")
 #let styling = it => {
   show regex("(?i)Proof"): it => [_Proof:_]
   show regex("qed"): it => align(right, $square.filled$)
@@ -13,7 +13,7 @@
     }
     // pagebreak()
     context line(length: 100%)
-    context text(weight: "bold", [Problem #problem.display()])
+    context text(weight: "bold", [Zadanie #problem.display()])
   }
   it
 }

@@ -7,7 +7,7 @@
 
 MIKOŁAJ KAPICA 272729 | Równania różniczkowe zwyczajne | zadanie dodatkowe 6
 
-Problem 
+Zadanie 
 
 Dane jest równania 
 

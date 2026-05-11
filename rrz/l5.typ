@@ -14,7 +14,7 @@
 
 MIKOŁAJ KAPICA 272729 | Równania różniczkowe zwyczajne | lista 5
 
-Problem
+Zadanie
 
 In problems 5.1-5.5 we consider the equation
 $ P(x,y) d x + Q(x,y) d y = 0 $ <RL>
@@ -29,7 +29,7 @@ $
 
 $ Phi "to całką RL" <=> Phi "to całka" mu "RL" $
 
-Problem
+Zadanie
 
 Assume that $mu in C^1(D)$ is non-zero on $D$. Show that then $Phi : D -> RR$ is an integral of equation (RL) if and only if it is an integral of equation
 $ mu(x, y)P(x,y) d x + mu(x, y)Q(x,y) d y = 0. $ <RLmi>
@@ -47,17 +47,17 @@ $
 chyba jakas intuicja ze $gradient F || (P, Q)$, wektor jest rownolegly do samego
 siebie.
 
-Problem
+Zadanie
 
 Let $J$ be an interval and $Phi : D -> J$ an integral of equation (RL). Let $f : J -> RR$ be a function of class $C^1$ such that $f' != 0$ on $J$. Justify that $f compose Phi$ is an integral of this equation.
 
 Equation (RL) is called exact if the vector field $(P,Q)$ is exact. The function $mu(x, y)$ is called an integrating factor of equation (RL) if equation (RLmi) is exact.
 
-Problem
+Zadanie
 
 Justify that the primitive function of the exact equation (RL) is an integral of this equation.
 
-Problem
+Zadanie
 
 Justify that equation (RL) has an integrating factor if and only if there exists an integral of this equation.
 
@@ -87,7 +87,7 @@ $
   underbrace((x,y) Q(x,y) dy, Phi_x)
 $
 
-Problem
+Zadanie
 
 Find the necessary and sufficient condition for the differential equation (RL) to have an integrating factor of the form:
 + $mu(x+y)$
@@ -136,7 +136,7 @@ Find the necessary and sufficient condition for the differential equation (RL) t
 
   Zatem $u'/u$ musi zależeć wyłącznie od $x^2 + y^2$.
 
-Problem
+Zadanie
 
 Find the integrals of the differential equations:
 
@@ -260,7 +260,7 @@ Find the integrals of the differential equations:
 
 + $(x - x y) d x + (x^2 + y) d y = 0$
 
-Problem
+Zadanie
 
 Show that the differential equation $y d x - x d y = 0$ does not have an integral defined on the region $D = RR^2 - {(0,0)}$.
 

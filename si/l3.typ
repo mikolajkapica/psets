@@ -3,7 +3,7 @@
 
 sztuczna inteligencja - lista 3 - algorytmiczne wnioskanie w rachunku zdań
 
-Problem
+Zadanie
 
 Uzasadnić metodą rezolucji zasadę szufladkową Dirichleta dla czterech obiektów i
 trzech szufladek: zapisać odpowiednie warunki jako formuły rachunku zdań i
@@ -16,7 +16,7 @@ faktycznie systematycznie wyprowadzali wszystkie możliwe rezolwenty w kolejnych
 iteracjach.
 
 
-Problem
+Zadanie
 
 Rozważmy następujący graf z czterema wierzchołkami:
 
@@ -35,13 +35,13 @@ oznacza, że problem istnienia cyklu Hamiltona jest NP-zupełny.
 
 
 
-Problem
+Zadanie
 
 Uzasadnić, że każda formuła 3-CNF składająca się z siedmiu lub mniej klauzul
 jest spełnialna (za formułę 3-CNF uznajemy formułę CNF, w której każda klauzula
 składa się dokładnie z trzech literałów).
 
-Problem 4
+Zadanie 4
 
 Uzasadnić, że jeśli baza wiedzy składa się wyłącznie z klauzul 2-CNF, to
 algorytm rezolucji będzie miał złożoność wielomianową (względem liczby
@@ -70,7 +70,7 @@ algorytmu rezoluzji wynosi $O((2n^2 + n) dot (4n^4 + 4n^3 - n^2 - n)/2) =
 O(n^6)$. Jest to czas wielomianowy.
 
 
-Problem
+Zadanie
 
 Ile formuł k-CNF można utworzyć z n symboli (niekoniecznie wykorzystując
 wszystkie symbole)?
@@ -82,7 +82,7 @@ dot
 2^k$ klauzul. Formuła to podzbiór klauzul, czyli jest ich $2^(binom(n, k) dot 2^k)$.
 
 
-Problem
+Zadanie
 
 Rozważmy następującą bazę wiedzy:
 - $P => Q$ (1)

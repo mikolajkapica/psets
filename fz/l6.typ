@@ -43,7 +43,7 @@ Mikołaj Kapica | Funkcje Zespolone | Lista 6
   Then $sum_(n=1)^oo a_n dot b_n$ converges.
 ]
 
-Problem
+Zadanie
 
 Dany jest ciąg funkcji $(f_n(z))$, gdzie $f_n(z) = 1 / (|z|^n + 1)$. Wyznacz zbiór, na którym ciąg ten jest zbieżny punktowo. Czy zbieżność jest jednostajna?
 
@@ -169,7 +169,7 @@ zbieżność jednostajna.
 
 
 
-Problem
+Zadanie
 Wykaż zbieżność jednostajną szeregów na podanym zbiorze:
 
 a) $sum_(n=1)^oo z^(-2n) 1/n^2, quad A = {z in CC: |z| > 1}$
@@ -206,7 +206,7 @@ Skoro:
 
 To na mocy kryterium d'Alemberta $sum1 f_n (z)$ jest zbieżny jednostajnie na $B_delta$.
 
-Problem
+Zadanie
 Uzasadnij, że jeśli $"Re"(z_n) >= 0$ i szeregi $sum_(n=1)^oo z_n$, $sum_(n=1)^oo z_n^2$ są zbieżne, to szereg $sum_(n=1)^oo z_n^2$ jest zbieżny bezwzględnie.
 
 Let $z_n = x_n + i y_n$
@@ -241,7 +241,7 @@ converges.
 
   #set enum(numbering: "(a)")
 
-Problem
+Zadanie
 Znajdź promienie zbieżności szeregów potęgowych i zbadaj zachowanie szeregu na brzegu koła zbieżności:
 
 + $sum_(n=0)^oo 1/(3-4i)^n (z-4i)^n = S$
@@ -433,7 +433,7 @@ Znajdź promienie zbieżności szeregów potęgowych i zbadaj zachowanie szeregu
 
 
 
-Problem
+Zadanie
 Rozważmy szereg potęgowy $sum_(n=1)^oo a_n (z-1-2i)^n$. Czy szereg ten, dla pewnego ciągu $a_n$ może być jednocześnie zbieżny w punkcie $z_1 = -3+i$ i rozbieżny w $z_2 = 5-3i$?
 
 If $|-3 + i - 1 - 2i| < R <=> |-4 - i| < R <=>
@@ -454,7 +454,7 @@ Simplest case: $a_n = 1/5^n$ then $a_(n+1) / a_n = (1/5^(n+1)) / (1/5^n) =
 (5^n) / (5^(n+1)) = 1/5$.
 
 
-Problem
+Zadanie
 // Rozwiń funkcję $f(z)$ w szereg potęgowy wokół punktu $a$ i oblicz promień zbieżności otrzymanego szeregu dla:
 
 Expand the function $f(z)$ into a power series around point $a$ and calculate the radius of convergence of the obtained series for:

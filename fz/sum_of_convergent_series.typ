@@ -1,7 +1,7 @@
 #import "../lib.typ": *
 #show: styling
 
-Problem
+Zadanie
 
 Let $x_n, y_n in RR$. Show that if both $sum_(n=1)^oo x_n$ and $sum_(n=1)^oo
 y_n$ converge then $sum_(n=1)^oo x_n + y_n$ converges

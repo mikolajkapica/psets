@@ -26,7 +26,7 @@
 
 MIKOŁAJ KAPICA 272729 | Równania różniczkowe zwyczajne | zadanie dodatkowe 7
 
-Problem
+Zadanie
 
 Znaleźć rozwiązanie równania zwyczajnego drugiego rzędu z warunkami początkowymi
 
