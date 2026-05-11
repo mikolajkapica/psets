@@ -1,6 +1,7 @@
 #import "../lib.typ": *
 #show: styling
 
+#let dt = $"d"t$
 #let dx = $"d"x$
 #let dy = $"d"y$
 #let dz = $"d"z$
@@ -11,13 +12,15 @@
 #let dv = $"d"v$
 #let dtau = $"d"tau$
 
-6.1. Znaleźć rozwiązania ogólne układów równań różniczkowych:
+Zadanie 1
+
+Znaleźć rozwiązania ogólne układów równań różniczkowych:
 a) $cases(x' = x sin t, y' = x e^(cos t))$
 b) $cases(x' + (2x)/t = 0, y' = (1 + 2/t)x + y)$
 
-Zadanie
+Zadanie 2
 
-6.2. Znaleźć rozwiązania ogólne równań różniczkowych:
+Znaleźć rozwiązania ogólne równań różniczkowych:
 a) $(1 + t^2)x'' + (x')^2 + 1 = 0$
 b) $t x'' = x' ln(x'/t)$
 c) $(t ln t)x'' - x' = 0$
@@ -25,15 +28,15 @@ d) $x x'' = (x')^3$
 e) $1 + (x')^2 = 2x x''$
 f) $2x x'' + (x')^2 + (x')^4 = 0$
 
-Zadanie
+Zadanie 3
 
-6.3. Znaleźć rozwiązania zagadnień początkowych:
+Znaleźć rozwiązania zagadnień początkowych:
 a) $2x x'' - 3(x')^2 = 4x^2$, $x(0) = 1$, $x'(0) = 0$
 b) $3x' x'' = e^x$, $x(-3) = 0$, $x'(-3) = 1$
 
-Zadanie
+Zadanie 4
 
-6.4. Znaleźć równanie ruchu ciała o masie $m$ spadającego swobodnie, uwzględniając opór powietrza opisany wzorem $G = k v^2$, gdzie $k$ jest dodatnią stałą, a $v$ jest prędkością ruchu. Znaleźć rozwiązanie tego równania.
+Znaleźć równanie ruchu ciała o masie $m$ spadającego swobodnie, uwzględniając opór powietrza opisany wzorem $G = k v^2$, gdzie $k$ jest dodatnią stałą, a $v$ jest prędkością ruchu. Znaleźć rozwiązanie tego równania.
 
 Dowód
 
@@ -107,104 +110,284 @@ $
   = m / k ln(cosh(sqrt((g k) / m) t)).
 $
 
-qed
 
-Zadanie
 
-6.5. Znaleźć rozwiązanie ogólne równania różniczkowego:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Zadanie 5
+
+Znaleźć rozwiązanie ogólne równania różniczkowego:
 $t^2 x x'' = (x - t x')^2$
 
-Dowód
+$v = x' / x$ ale nie wiem skąd to niby
 
-Podstawiamy
-$
-  x = t u(t).
-$
 
-Wtedy
-$
-  x' = u + t u',
-  quad
-  x'' = 2u' + t u''.
-$
 
-Ponadto
-$
-  x - t x'
-  = t u - t(u + t u')
-  = -t^2 u'.
-$
 
-Po podstawieniu do równania:
-$
-  t^2 dot t u dot (2u' + t u'') = t^4 (u')^2.
-$
 
-Dla $t != 0$ dostajemy
-$
-  u(2u' + t u'') = t (u')^2.
-$
 
-Czyli
-$
-  2u u' + t u u'' - t (u')^2 = 0.
-$
 
-Mnożymy przez $t / u^2$:
-$
-  2t u' / u + t^2 u'' / u - t^2 (u' / u)^2 = 0.
-$
 
-Zauważamy, że
-$
-  (t^2 u' / u)'
-  = 2t u' / u + t^2 u'' / u - t^2 (u' / u)^2.
-$
 
-Zatem
-$
-  (t^2 u' / u)' = 0.
-$
 
-Stąd
-$
-  t^2 u' / u = C_1.
-$
 
-Czyli
-$
-  u' / u = C_1 / t^2.
-$
 
-Całkujemy:
-$
-  ln abs(u) = - C_1 / t + C_2.
-$
 
-Zatem
-$
-  u = C e^(-C_1 / t).
-$
 
-Ponieważ $x = t u$, dostajemy rozwiązanie ogólne
-$
-  x(t) = C_2 t e^(C_1 / t).
-$
 
-qed
 
-Zadanie
 
-6.6. Znaleźć rozwiązanie zagadnienia początkowego:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+
+Zadanie 6
+
+Znaleźć rozwiązanie zagadnienia początkowego:
 $
   cases(x' = y, y' = y^2 / x),
   quad
   cases(x(0) = 1, y(0) = 2)
 $
 
-Zadanie
+$
+  x' = dx/dt = y, quad y' = dy/dt = y^2/x
+$
 
-6.7. Znaleźć rozwiązanie zagadnienia początkowego:
+$
+  1/y dx = dt = x/(y^2) dy quad | dot y^2 \
+  y dx - x dy = 0 \
+$
+
+$
+  (mu' (S)) / (mu (S)) = (Q_x - P_y)/(S_y P - S_x Q) quad "musi zależeć wyłącznie od " S
+$
+
+Niech $S = x$. Wtedy
+
+$
+  mu'/mu = (-1 - 1)/(x) = -2/x quad "zależy tylko od x" checkmark \
+  ln(mu)' = -2/x \
+  mu = exp(integral -2/x dx) = exp(-2 ln |x|) = 1 / x^2
+$
+
+Przemnażając przez $mu$ obie strony:
+
+$
+  y/x^2 dx - 1/x dy = 0 \
+  "sprawdzenie: " (y/x^2)_y = 1/x^2 = (-1/x)_x quad checkmark
+$
+
+$
+  Phi_y = -1/x ==> Phi = - y/x + C(x) ==> Phi_x = y/x^2 + C'(x) \
+  ==> C'(x) = 0 => C(x) = C
+$
+
+Zatem
+$
+  Phi(x, y) = -y/x = C ==> y = - C x
+$
+
+Wtedy podstawiamy $y$ do pierwszego równania:
+
+$
+  x' = -C x \
+  dx/x = -C dt | integral \
+  ln|x| = -C t + D \
+  x(t) = plus.minus exp(-C t + D)
+$
+
+$
+  cases(
+    x(t) = plus.minus exp(-C t + D),
+    y(t) = - C x(t)
+  )
+$
+
+Skoro $x(0) = 1$ i $y(0) = 2$ to:
+
+$
+  x(0) = plus.minus exp(-C t + D) = 1 \
+  y(0) = - C / x(0) = 2
+$
+
+$
+  1 = plus.minus exp(D) => D = 0 space "i wybieramy" plus
+$
+
+$
+  2 = - C / 1 => C = -2
+$
+
+Zatem:
+
+$
+  cases(
+    x(t) = e^(2 t),
+    y(t) = 2 e^(2 t)
+  )
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+
+
+Zadanie 7
+
+Znaleźć rozwiązanie zagadnienia początkowego:
 $
   cases(x' = 1 - 1 / y, y' = 1 / (x - t)),
   quad
