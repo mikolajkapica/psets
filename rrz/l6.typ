@@ -2,6 +2,7 @@
 #show: styling
 
 #let dt = $"d"t$
+#let du = $"d"u$
 #let dx = $"d"x$
 #let dy = $"d"y$
 #let dz = $"d"z$
@@ -110,80 +111,12 @@ $
   = m / k ln(cosh(sqrt((g k) / m) t)).
 $
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Zadanie 5
 
 Znaleźć rozwiązanie ogólne równania różniczkowego:
 $t^2 x x'' = (x - t x')^2$
 
 $v = x' / x$ ale nie wiem skąd to niby
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#pagebreak()
 
 Zadanie 6
 
@@ -272,118 +205,7 @@ $
   )
 $
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pagebreak()
-
 
 Zadanie 7
 
@@ -392,4 +214,64 @@ $
   cases(x' = 1 - 1 / y, y' = 1 / (x - t)),
   quad
   cases(x(0) = -1, y(0) = 1)
+$
+
+$
+  (d (x - t)) / dt = x' - 1 = - 1/y \
+$
+
+Podstawmy $u = x - t$:
+
+$
+  cases(
+    u' = -1/y,
+    y' = 1/u
+  )
+$
+
+Teraz możemy napisać:
+
+$
+  -y du = dt = u dy \
+  u dy + y du = 0 \
+$
+
+To jest po prostu
+
+$
+  Phi(y, u) = y u = C ==> u = C / y
+$
+
+Podstawmy do wcześniejszego równania
+
+$
+  y' = 1/u = y/C \
+  dy/y = 1/C dt \
+  ln|y| = t/C + D \
+  y = plus.minus exp(t/C + D)
+$
+
+oraz
+
+$
+  u = C / y => x = C / y + t
+$
+
+Podstawmy do warunków początkowych:
+
+$
+  1 = y(0) = plus.minus exp(D) => D = 0 "i bierzemy wariant dodatni"
+$
+
+$
+  -1 = x(0) = C / y(0) + 0 = C / 1 => C = -1
+$
+
+Zatem:
+
+$
+  cases(
+    y = e^(-t),
+    x = -1/e^(-t) + t = -e^t + t
+  )
 $
