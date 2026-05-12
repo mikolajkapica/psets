@@ -29,10 +29,13 @@ $cal(B)(1,p)$, $p in (0,1)$.
   nie większą niż $n$. Dla $r=1$ wyznaczyć funkcję ryzyka tego estymatora przy
   kwadratowej funkcji straty.
 
-  Z tw. Lehmanna-Scheffego: znajdujemy estymator nieobciążony $W(X)$ parametru $g(p)$ i wyznaczamy
+ Z tw. Lehmanna-Scheffego: znajdujemy estymator nieobciążony $W(X)$ parametru $g(p)$ i wyznaczamy
   statystykę dostateczną i zupełną $T(X)$ dla $p$. Wówczas $phi(T) = EE[W | T]$ jest UMVUE.
 
   Niech $W(X) = X_1 dot dots dot X_r$. Wówczas $EE[W] = EE[X_1] dot dots dot EE[X_r] = p^r$ (niezależność).
+
+  (można wziąć np. $W = cases(1 ", gdy" sum_(i=1)^r X_i = r, 0 "w.p.p.")$ i
+  wtedy $PP( sum_(i=1)^r X_i = r mid(|) sum_(i=1)^n X_i = t)$)
 
   $T(X) = X_1 + dots + X_n ~ cal(B)(n, p)$ jest statystyką dostateczną i zupełną.
 
@@ -45,10 +48,14 @@ $cal(B)(1,p)$, $p in (0,1)$.
            & = (t dot (t-1) dot dots dot (t-r+1)) / (n dot (n-1) dot dots dot (n-r+1))
   $
 
+  (na zajeicach $Phi = cases(binom(n-r, sum_1^n X_i - r)/binom(n, sum_1^n x_i) "gdy"
+  sum_1^n x_i = t, 0 "w.p.p.")$)
+
   dla $t >= r$ (dla $t < r$ mamy $phi(T) = 0$).
 
   Dla $r = 1$: $phi(T) = T / n = overline(X)$. Funkcja ryzyka przy kwadratowej funkcji straty:
   $R(p, phi) = EE_p [(overline(X) - p)^2] = "Var"_p (overline(X)) = p(1-p)/n$
+
 
 
 
@@ -79,6 +86,9 @@ $cal(B)(1,p)$, $p in (0,1)$.
 
   Zatem $hat(g)(T) = T(n-T)/(n(n-1))$ jest UMVUE dla $g(p) = p(1-p)$.
 
+  Alternatywny sposób to $EE[T/n] = p, EE[T(1-T)]/(n(1-n)) = p^2$ i $hat(g)(T) =
+  hat(p) - hat(p^2)$
+
   *Asymptotyczne własności:*
 
   Niech $dash(p) = T/n$. Wtedy $W = n/(n-1) dot dash(p)(1-dash(p))$.
@@ -99,29 +109,63 @@ $cal(B)(1,p)$, $p in (0,1)$.
     $
     Co jest równoważne stwierdzeniu, że:
     $
-      sqrt(n) * (dash(p) - p) ->^d cal(N)(0, sigma^2)
+      sqrt(n) dot (dash(p) - p) ->^d cal(N)(0, sigma^2)
     $
-    czyli $cal(N)(0, p * (1-p))$.
+    czyli $cal(N)(0, p dot (1-p))$.
 
-    Nasz estymator $W$ jest funkcją $g(dash(p))$, gdzie $g(x) = x * (1-x)$.
+    Nasz estymator $W$ jest funkcją $g(dash(p))$, gdzie $g(x) = x dot (1-x)$.
     Z metody delty wynika, że:
-    $ sqrt(n) * (g(dash(p)) - g(p)) approx g'(p) * [sqrt(n) * (dash(p) - p)] $
+    $ sqrt(n) dot (g(dash(p)) - g(p)) approx g'(p) dot [sqrt(n) dot (dash(p) - p)] $
+
+    pomyslec nad tym $approx$
+
 
     Wyrażenie w nawiasie dąży do $cal(N)(0, sigma^2)$.
-    Mnożenie zmiennej normalnej przez stałą $g'(p)$ zmienia wariancję na $[g'(p)]^2 * sigma^2$.
-    Ponieważ $g'(x) = 1 - 2x$, wariancja graniczna to $(1 - 2p)^2 * p * (1-p)$.
+    Mnożenie zmiennej normalnej przez stałą $g'(p)$ zmienia wariancję na
+    $[g'(p)]^2 dot sigma^2$.
+    Ponieważ $g'(x) = 1 - 2x$, wariancja graniczna to $(1 - 2p)^2 dot p dot (1-p)$.
 
     Ostatecznie:
     $
-      sqrt(n) * (W - p * (1-p)) ->^d cal(N)(0, (1-2p)^2 * p * (1-p))
+      sqrt(n) dot (W - p dot (1-p)) ->^d cal(N)(0, (1-2p)^2 dot p dot (1-p))
     $
     Estymator jest asymptotycznie normalny.
 
 
-Zadanie 4
-Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu wykładniczego $cal(E)(lambda)$, gdzie $lambda > 0$. Pokazać, że estymator
-$ T_n(X) = n X_((1)) $
-jest nieobciążonym estymatorem parametru $lambda$, jednakże ciąg estymatorów $(T_n)$ nie jest zgodny.
+Problem 4
+Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu wykładniczego
+$cal(E)(lambda)$, gdzie $lambda > 0$. Pokazać, że estymator 
+$ 
+T_n (X) = n X_((1))
+$ 
+jest nieobciążonym estymatorem parametru $lambda$, jednakże ciąg estymatorów
+$(T_n)$ nie jest zgodny.
+
+$
+  X ~ "Exp"(lambda) \
+  f(x) = 1/lambda e^(-x/lambda)
+$
+
+Z listy 1 $X_((1)) ~ "Exp"(n/lambda), f(x) = n/x e^(-(n x)/lambda)$ 
+
+$
+  EE[n X_((1))] = n EE X_((1)) = n dot lambda/n = lambda ==> n X_((1)) 
+  "jest nieobciążonym estymatorem" lambda
+$
+
+$
+  forall_epsilon lim_(n->oo) (PP |T_n - lambda| >= epsilon) 
+  &= F_(X_((1))) (lambda - epsilon)/n + 1 - F_(X_((1))) (lambda + epsilon)/n \
+  &= cases(
+    1 - e^(-n/lambda ((lambda-epsilon)/n)) + 1 - 1 + e^(-n/lambda ((lambda +
+      epsilon)/n)) = 1 - e^(-(lambda - epsilon)/lambda) + e^(-(lambda +
+      epsilon)/lambda)
+  quad &epsilon < lambda,
+    e^(-n/lambda (lambda/n + epsilon/n)) = e^(-(lambda+epsilon)/lambda) quad &epsilon >= lambda,
+  )
+$
+
+$PP (|T_n - lambda| >= epsilon)$ jest stała i dodatnia więc nie zbiega do $0$.
 
 Zadanie 5
 Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu
@@ -129,6 +173,43 @@ Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu
 + jednostajnego $cal(U)(theta - 1/2, theta + 1/2)$, $theta in bb(R)$;
 + jednostajnego $cal(U)(alpha, beta)$, $alpha, beta in bb(R)$, $alpha < beta$, $theta=(alpha, beta)$.
 Dla każdej z tych rodzin rozkładów wyznaczyć statystykę dostateczną i zupełną dla parametru $theta$.
+
+
+a, b można załatwić:
+
+Z listy 6 wiemy że $T = (sum_1^n X_i, sum_1^n X_i^2)$ jest statystyką
+dostateczną ale nie jest zupełna.
+
+Przypuśćmy, że $S$ jest statystyką zupełną i dostateczną.
+
+Skoro $T$ jest minimalną statystyką dostateczną, to istnieje $h$-mierzalna taka,
+że 
+
+$
+T = h(S)
+$
+
+Ale $S$ jest zupełna, więc dla dowolnej $g$-mierzalej mamy
+
+$
+forall_theta EE_theta [g(S)] = 0 => g = 0 "p.w."
+$
+
+Ale
+
+$
+EE_theta [g(T)] = EE_theta [(g compose h) (S)]
+$
+
+więc gdyby $EE_theta [(g compose h) (S)] = 0$, to z zupełności $S$ mamy $g
+compose h = 0$ p.w. czyli $g = 0$ p.w. (????????!)
+
+tzn. dostaliśmy, że $EE_theta [g(T)] = 0 => g=0$ - sprzeczność z brakiem
+zupełności $T$.
+
+
+
+
 
 Rozwiązania:
 
@@ -281,7 +362,79 @@ dostateczna i zupełna.
 
 Zadanie 6
 Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U)(alpha, beta)$, $alpha, beta in bb(R)$, $alpha < beta$.
+
 + Znaleźć estymatory UMVU parametrów $alpha$ i $beta$.
+
+  Z zadania 5c) $T(X) = (X_((1)), X_((n)))$ jest statystyką zupełną i
+  dostateczną dla $(alpha, beta)$.
+
+  Chcemy $W(T)$ takie, że $EE[W(T)] = alpha$
+
+  $
+    EE[a X_((1)) + b X_((n))] = alpha \
+    a EE[X_((1))] + b EE[X_((n))] = alpha \
+    X ~ U(0,1), quad EE[X_((1))] = 1/(n+1) quad EE[X_((n))] = n/(n+1)
+  $
+
+  Stąd dla $X ~ U(alpha, beta)$:
+
+  $
+    EE[X_((1))] = alpha + (beta -alpha)/(n+1) \
+    EE[X_((n))] = alpha + ((beta - alpha) n)/(n+1) \
+  $
+
+  $
+    a (alpha + (beta - alpha)/(n+1) + b (alpha + ((beta - alpha) n)/(n + 1)) =
+    alpha \
+
+    alpha (a + b) + (beta - alpha) (a/(n+1) + (b n)/(n+1)) = alpha
+    alpha \
+
+    cases(
+      a + b = 1,
+      a/(n+1) + (b n)/(n+1) = 0
+    ) 
+    => 
+    cases(
+      a = n/(n-1),
+      b = -1/(n-1)
+    )
+  $
+
+  $W_alpha (T) = n/(n-1) X_((1)) - 1/(n-1)$
+
+
+  Dla $beta$:
+
+  $
+    alpha (a + b - a/(n+1) - (b n)/(n+1)) = beta (a/(n-1) + (b n)/(n + 1)) =
+    beta \
+
+    cases(
+      a + b - a/(n+1) - (b n)/(n+1) = 0,
+      a/(n+1) + (b n)/(n + 1) = 1
+    )
+    =>
+    cases(
+      a = -1/(n-1),
+      b = n/(n-1)
+    )
+  $
+
+  $
+    W_beta (T) = -1/(n-1) X_((1)) + n/(n-1) X_((n))
+  $
+
+  $
+   W_(beta-alpha) (T) = W_beta (T) - W_alpha (T) = ....
+  $
+
+
+
+
+
+
+
 + Znaleźć estymator UMVU funkcji $g(alpha, beta) = beta - alpha$.
 
 Zadanie 7
