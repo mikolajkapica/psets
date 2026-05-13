@@ -94,6 +94,10 @@ $
 
 więc rozwinięcie w szereg Laurenta nie jest jednoznaczne.
 
+zapisac jako geom.
+
+Szeregi nie mają wspólnego zbioru na którym są zbieżne.. z>1, z < 1
+
 Zadanie
 
 Znajdź rozwinięcie funkcji
@@ -102,6 +106,36 @@ w szereg Laurenta dla otoczeń pierścieniowych punktu
 
 a) $z = 0$; \
 b) $z = 1$.
+
+a)
+
+rozlam na ułamki proste
+
+$
+f(z) 
+= 1/((z-1) z^2)
+= 1/(z-1) underbrace(- 1/z - 1/z^2, "część główna")
+$
+
+$
+  1/(z-1) = - 1/(1-z) = - sum_(n=0)^oo z^n 
+$
+
+Więc:
+
+$
+ f(z) = sum_(n = -2)^oo (-z^n)
+$
+
+b)
+
+$
+z = 1 quad 0 < abs(z-1) < 1
+$
+
+teraz $1/(z-1)$ to część główna
+
+
 
 Zadanie
 

@@ -13,3 +13,7 @@
     f(x;theta) = underbrace(binom(x+r-1, x), "na ile sposobów mogę ustawić porażki") quad underbrace(p^r, "to że się uda r razy") quad underbrace((1-p)^k, "to że się zjebie k razy")
   $
 ]
+
+#note[
+  y' = 1/y => y = e^t
+]
