@@ -29,13 +29,13 @@ $cal(B)(1,p)$, $p in (0,1)$.
   nie większą niż $n$. Dla $r=1$ wyznaczyć funkcję ryzyka tego estymatora przy
   kwadratowej funkcji straty.
 
- Z tw. Lehmanna-Scheffego: znajdujemy estymator nieobciążony $W(X)$ parametru $g(p)$ i wyznaczamy
+  Z tw. Lehmanna-Scheffego: znajdujemy estymator nieobciążony $W(X)$ parametru $g(p)$ i wyznaczamy
   statystykę dostateczną i zupełną $T(X)$ dla $p$. Wówczas $phi(T) = EE[W | T]$ jest UMVUE.
 
   Niech $W(X) = X_1 dot dots dot X_r$. Wówczas $EE[W] = EE[X_1] dot dots dot EE[X_r] = p^r$ (niezależność).
 
   (można wziąć np. $W = cases(1 ", gdy" sum_(i=1)^r X_i = r, 0 "w.p.p.")$ i
-  wtedy $PP( sum_(i=1)^r X_i = r mid(|) sum_(i=1)^n X_i = t)$)
+  wtedy $PP(sum_(i=1)^r X_i = r mid(|) sum_(i=1)^n X_i = t)$)
 
   $T(X) = X_1 + dots + X_n ~ cal(B)(n, p)$ jest statystyką dostateczną i zupełną.
 
@@ -48,8 +48,10 @@ $cal(B)(1,p)$, $p in (0,1)$.
            & = (t dot (t-1) dot dots dot (t-r+1)) / (n dot (n-1) dot dots dot (n-r+1))
   $
 
-  (na zajeicach $Phi = cases(binom(n-r, sum_1^n X_i - r)/binom(n, sum_1^n x_i) "gdy"
-  sum_1^n x_i = t, 0 "w.p.p.")$)
+  (na zajeicach $Phi = cases(
+    binom(n-r, sum_1^n X_i - r)/binom(n, sum_1^n x_i) "gdy"
+    sum_1^n x_i = t, 0 "w.p.p."
+  )$)
 
   dla $t >= r$ (dla $t < r$ mamy $phi(T) = 0$).
 
@@ -134,10 +136,10 @@ $cal(B)(1,p)$, $p in (0,1)$.
 
 Problem 4
 Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu wykładniczego
-$cal(E)(lambda)$, gdzie $lambda > 0$. Pokazać, że estymator 
-$ 
-T_n (X) = n X_((1))
-$ 
+$cal(E)(lambda)$, gdzie $lambda > 0$. Pokazać, że estymator
+$
+  T_n (X) = n X_((1))
+$
 jest nieobciążonym estymatorem parametru $lambda$, jednakże ciąg estymatorów
 $(T_n)$ nie jest zgodny.
 
@@ -146,22 +148,22 @@ $
   f(x) = 1/lambda e^(-x/lambda)
 $
 
-Z listy 1 $X_((1)) ~ "Exp"(n/lambda), f(x) = n/x e^(-(n x)/lambda)$ 
+Z listy 1 $X_((1)) ~ "Exp"(n/lambda), f(x) = n/x e^(-(n x)/lambda)$
 
 $
-  EE[n X_((1))] = n EE X_((1)) = n dot lambda/n = lambda ==> n X_((1)) 
+  EE[n X_((1))] = n EE X_((1)) = n dot lambda/n = lambda ==> n X_((1))
   "jest nieobciążonym estymatorem" lambda
 $
 
 $
-  forall_epsilon lim_(n->oo) (PP |T_n - lambda| >= epsilon) 
+  forall_epsilon lim_(n->oo) (PP |T_n - lambda| >= epsilon)
   &= F_(X_((1))) (lambda - epsilon)/n + 1 - F_(X_((1))) (lambda + epsilon)/n \
   &= cases(
     1 - e^(-n/lambda ((lambda-epsilon)/n)) + 1 - 1 + e^(-n/lambda ((lambda +
       epsilon)/n)) = 1 - e^(-(lambda - epsilon)/lambda) + e^(-(lambda +
-      epsilon)/lambda)
-  quad &epsilon < lambda,
-    e^(-n/lambda (lambda/n + epsilon/n)) = e^(-(lambda+epsilon)/lambda) quad &epsilon >= lambda,
+    epsilon)/lambda)
+    quad & epsilon < lambda,
+    e^(-n/lambda (lambda/n + epsilon/n)) = e^(-(lambda+epsilon)/lambda) quad & epsilon >= lambda,
   )
 $
 
@@ -183,22 +185,22 @@ dostateczną ale nie jest zupełna.
 Przypuśćmy, że $S$ jest statystyką zupełną i dostateczną.
 
 Skoro $T$ jest minimalną statystyką dostateczną, to istnieje $h$-mierzalna taka,
-że 
+że
 
 $
-T = h(S)
+  T = h(S)
 $
 
 Ale $S$ jest zupełna, więc dla dowolnej $g$-mierzalej mamy
 
 $
-forall_theta EE_theta [g(S)] = 0 => g = 0 "p.w."
+  forall_theta EE_theta [g(S)] = 0 => g = 0 "p.w."
 $
 
 Ale
 
 $
-EE_theta [g(T)] = EE_theta [(g compose h) (S)]
+  EE_theta [g(T)] = EE_theta [(g compose h) (S)]
 $
 
 więc gdyby $EE_theta [(g compose h) (S)] = 0$, to z zupełności $S$ mamy $g
@@ -333,13 +335,13 @@ dostateczna i zupełna.
   $(X_((1)), X_((n)))$ wynosi
   $
     f_T(x_((1)), x_((n)); alpha,beta)
-      = (n(n-1) (x_((n))-x_((1)))^(n-2))/(beta-alpha)^n
-        bb(1)_(alpha < x_((1)) < x_((n)) < beta).
+    = (n(n-1) (x_((n))-x_((1)))^(n-2))/(beta-alpha)^n
+    bb(1)_(alpha < x_((1)) < x_((n)) < beta).
   $
   Niech $EE_(alpha,beta) g(T) = 0$ dla każdego $alpha < beta$. Wtedy
   $
     integral_alpha^beta integral_(x_((1)))^beta
-      g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) dif x_((n)) dif x_((1)) = 0
+    g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) dif x_((n)) dif x_((1)) = 0
     quad "dla każdych" alpha < beta.
   $
   Odejmując od tej równości analogiczne równości dla przedziałów
@@ -347,7 +349,7 @@ dostateczna i zupełna.
   $alpha < c < beta$:
   $
     integral_alpha^c integral_c^beta
-      g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) dif x_((n)) dif x_((1)) = 0.
+    g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2) dif x_((n)) dif x_((1)) = 0.
   $
   A więc całka funkcji
   $g(x_((1)),x_((n))) (x_((n))-x_((1)))^(n-2)$ po dowolnym prostokącie zawartym w
@@ -386,15 +388,13 @@ Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U
   $
     a (alpha + (beta - alpha)/(n+1) + b (alpha + ((beta - alpha) n)/(n + 1)) =
     alpha \
-
     alpha (a + b) + (beta - alpha) (a/(n+1) + (b n)/(n+1)) = alpha
     alpha \
-
     cases(
       a + b = 1,
       a/(n+1) + (b n)/(n+1) = 0
-    ) 
-    => 
+    )
+    =>
     cases(
       a = n/(n-1),
       b = -1/(n-1)
@@ -409,7 +409,6 @@ Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U
   $
     alpha (a + b - a/(n+1) - (b n)/(n+1)) = beta (a/(n-1) + (b n)/(n + 1)) =
     beta \
-
     cases(
       a + b - a/(n+1) - (b n)/(n+1) = 0,
       a/(n+1) + (b n)/(n + 1) = 1
@@ -426,7 +425,7 @@ Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U
   $
 
   $
-   W_(beta-alpha) (T) = W_beta (T) - W_alpha (T) = ....
+    W_(beta-alpha) (T) = W_beta (T) - W_alpha (T) = ....
   $
 
 
@@ -438,7 +437,164 @@ Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U
 + Znaleźć estymator UMVU funkcji $g(alpha, beta) = beta - alpha$.
 
 Zadanie 7
-Niech $X=(X_1,...,X_n)$ będzie próbą losową. Pokazać, że estymator $overline(X)$ parametru $mu$ w rodzinie $cal(N)(mu, 1)$ jest lepszy niż estymator $T(X) = 1/2(X_((1)) + X_((n)))$, tzn. $T(X)$ jest niedopuszczalny. Następnie udowodnić, że w rodzinie rozkładów jednostajnych na odcinku $[mu - 1/2, mu + 1/2]$ jest na odwrót, tzn. $overline(X)$ jest niedopuszczalny.
+Niech $X=(X_1,...,X_n)$ będzie próbą losową. Pokazać, że estymator $overline(X)$
+parametru $mu$ w rodzinie $cal(N)(mu, 1)$ jest lepszy niż estymator $T(X) =
+1/2 (X_((1)) + X_((n)))$, tzn. $T(X)$ jest niedopuszczalny. Następnie udowodnić,
+że w rodzinie rozkładów jednostajnych na odcinku $[mu - 1/2, mu + 1/2]$ jest na
+odwrót, tzn. $overline(X)$ jest niedopuszczalny.
+
+W zadaniach przyjmuje funkcje straty jako błąd kwadratowy (funkcja ściśle wypukła):
+
+$
+  L (mu, d) = (d - mu)^2
+$
+
+a)
+Dla estymatorów $mu$ w rodzinie rozkładów $cal(N)(mu, 1)$ chcemy pokazać:
+
+$
+  R (mu, overline(X)) < R (mu, T(X))
+$
+
+
+Wiemy z poprzednich zadań, że statystyka $overline(X)$ jest dostateczna dla rozkładów normalnych.
+
+Zobaczmy co Rao-Blackwellizacja da dla naszego estymatora $T(X)$:
+
+$
+  EE_mu [T(X) | overline(X) = t]
+  & = EE_mu [1/2 (X_((1)) + X_((n))) | overline(X)] \
+  & Z_i = X_i - overline(X) \
+  & = EE_mu [1/2 ((overline(X) + Z_((1))) + (overline(X) + Z_((n)))) | overline(X)] \
+  & = EE_mu [overline(X) + 1/2 (Z_((1)) + Z_((n))) | overline(X)] \
+  & = underbrace(EE_mu [overline(X) | overline(X)], overline(X)) + underbrace(EE_mu [1/2 (Z_((1)) + Z_((n))) | overline(X)], "symetryczne wg 0 dla Z zatem" = 0) \
+  & = overline(X)
+$
+
+Zatem na mocy tw. Rao-Blackwell'a $R(mu, overline(X)) < R(mu, T(X))$, więc $T(X)$ jest niedopuszczalny.
+
+b)
+
+Dla estymatorów $mu$ w rodzinie rozkładów jednostajnych na odcinku $[mu - 1/2, mu + 1/2]$ chcemy pokazać:
+
+$
+  R (mu, overline(X)) > R (mu, T(X))
+$
+
+
+Wiemy z poprzednich zadań, że statystyka $(X_((1)), X_((n)))$ jest dostateczna dla rozkładów jednostajnych.
+
+$
+  EE_mu [overline(X) | X_((1)) = a, X_((n)) = b] & = 1/n (EE_mu [X_((1)) + ... + X_((n)) | X_((1)) = a, X_((n)) = b] \
+                                                 & = 1/n (a + (n-2) dot (a+b)/2 + b) \
+                                                 & = 1/n (n/2 dot (a+b)) \
+                                                 & = (a+b)/2
+$
+
+Zatem $EE_mu [overline(X) | X_((1)), X_((n))] = (X_((1)) + X_((n)))/2$
+
+Zatem na mocy tw. Rao-Blackwell'a $R(mu, overline(X)) > R(mu, T(X))$, więc $overline(X)$ jest niedopuszczalny.
+
+*ALTERNATYWNIE*
+
+Dla średniej mamy
+
+$
+  R(mu, overline(X)) & = EE_mu [(overline(X) - mu)^2] \
+                     & = "Var"_mu (overline(X)) \
+                     & = "Var"_mu (1/n (X_1 + ... + X_n)) \
+                     & = 1/n^2 ("Var"_mu(X_1) + ... + "Var"_mu(X_n)) \
+                     & = 1/n^2 dot n \
+                     & = 1/n
+$
+
+$
+  R(mu, T) & = EE_mu [(T(X) - mu)^2] \
+           & = EE_mu [(1/2 (X_((1)) + X_((n))) - mu)^2] \
+           & = EE_mu [(1/2 ((overline(X) + Z_((1))) + (overline(X) + Z_((n)))) - mu)^2] \
+           & = EE_mu [((overline(X) - mu) + 1/2 (Z_((1)) + Z_((n))))^2] \
+           & = EE_mu [(overline(X) - mu)^2]
+             + EE_mu [(1/2 (Z_((1)) + Z_((n))))^2]
+             + 2 EE_mu [(overline(X) - mu) 1/2 (Z_((1)) + Z_((n)))] \
+           & = "Var"_mu (overline(X))
+             + 1/4 EE_mu [(Z_((1)) + Z_((n)))^2]
+             + EE_mu [overline(X) - mu] EE_mu [Z_((1)) + Z_((n))] "| bo" overline(X), Z_((1)) + Z_((n)) "niezalżne" \
+           & = 1/n
+             + 1/4 EE_mu [(Z_((1)) + Z_((n)))^2] \
+           & > 1/n "| bo suma min + max" cal(N)(0, 1) "prawie zawsze (dla "n>2")" != 0
+$
+
+Zatem dla $n > 2$ estymator $T(X)$ jest niedopuszczalny w rodzinie $cal(N)(mu, 1)$.
+
+b)
+
+Dla rozkładu jednostajnego $U[mu - 1/2, mu + 1/2]$
+
+$
+  R(mu, overline(X)) & = EE_mu [(overline(X) - mu)^2] \
+                     & = "Var"_mu(overline(X)) \
+                     & = "Var"_mu(1/n (X_1 + ... + X_n)) \
+                     & = 1/n^2 ("Var"_mu(X_1) + ... + "Var"_mu(X_n)) \
+                     & = 1/n^2 dot n dot 1/12 \
+                     & = 1/(12 n).
+$
+
+$
+  R(mu, T) & = EE_mu [(T(X) - mu)^2] \
+           & = EE_mu [(1/2 (X_((1)) + X_((n))) - mu)^2] "|" Y_i ~ U[0, 1] \
+           & = EE_mu [(1/2 (mu - 1/2 + Y_((1)) + mu - 1/2 + Y_((n))) - mu)^2] \
+           & = EE_mu [(mu - 1/2 (Y_((1)) + Y_((n)) - 1) - mu)^2] \
+           & = EE [(1/2 (Y_((1)) + Y_((n)) - 1))^2] \
+           & = 1/4 EE [(Y_((1)) + Y_((n)) - 1)^2] \
+           & = 1/4 EE [(Y_((1)) + Y_((n)) - 1)^2] \
+           & = 1/4 EE [
+               Y_((1))^2
+               + Y_((n))^2
+               + 2 Y_((1)) Y_((n))
+               - 2 Y_((1))
+               - 2 Y_((n))
+               + 1
+             ] \
+           & = 1/4 (
+               EE[Y_((1))^2]
+               + EE[Y_((n))^2]
+               + 2 EE[Y_((1)) Y_((n))]
+               - 2 EE[Y_((1))]
+               - 2 EE[Y_((n))]
+               + 1
+             ) \
+           & = 1/4 (
+               2/((n+1)(n+2))
+               + n/(n+2)
+               + 2/(n+2)
+               - 2/(n+1)
+               - 2n/(n+1)
+               + 1
+             ) \
+           & = 1/4 (
+               2/((n+1)(n+2))
+               + (n+2)/(n+2)
+               - 2(n+1)/(n+1)
+               + 1
+             ) \
+           & = 1/4 (
+               2/((n+1)(n+2))
+               + 1
+               - 2
+               + 1
+             ) \
+           & = 1/4 dot 2/((n+1)(n+2)) \
+           & = 1/(2(n+1)(n+2)).
+$
+
+Zatem dla $n > 2$
+
+$
+  R(mu, T) < R(mu, overline(X)).
+$
+
+Czyli w rodzinie rozkładów jednostajnych $U[mu - 1/2, mu + 1/2]$
+estymator $overline(X)$ jest niedopuszczalny.
 
 Zadanie 8
 Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu $cal(N)(mu, sigma^2)$. Dobrać stałą $c$, tak aby statystyka
@@ -446,7 +602,7 @@ $ W^2 = c sum_(i=1)^(n-1) (X_(i+1) - X_i)^2 $
 była nieobciążonym estymatorem parametru $sigma^2$. Porównać wariancję $W^2$ z wariancją $S^2$. Który z estymatorów pozwala ocenić $sigma^2$ z większą dokładnością?
 
 Zadanie 9
-Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U)(0, theta)$, gdzie $theta > 0$. Wykazać, że w klasie wszystkich estymatorów estymator
+Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego $cal(U)(0, mu)$, gdzie $theta > 0$. Wykazać, że w klasie wszystkich estymatorów estymator
 $ T(X) = (n+1)/n X_((n)) $
 jest niedopuszczalny dla $L(theta, d) = (d - theta)^2$, chociaż jest estymatorem UMVU.
 Wskazówka: Rozważyć estymator $T_1(X) = (n+2)/(n+1) X_((n))$.
