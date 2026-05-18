@@ -180,20 +180,69 @@ $
 
 Zadanie
 
+#let Kobieta = "Kobieta"
+#let Rodzic = "Rodzic"
+#let Ojciec = "Ojciec"
+#let Matka = "Matka"
+#let Dziecko = "Dziecko"
+#let Rodzenstwo = "Rodzenstwo"
+#let Mezczyzna = "Mezczyzna"
+
 W tym zadaniu użyjemy rachunku predykatów, żeby opisać relacje pokrewieństwa.
-Przyjmiemy następujące predykaty wyjściowe: $"Kobieta"(x)$ oznacza, że z jest
-kobietą; $"Rodzic"( , y)$ oznacza, że jest rodzicem $y$.
+Przyjmiemy następujące predykaty wyjściowe: $Kobieta(x)$ oznacza, że z jest
+kobietą; $Rodzic(, y)$ oznacza, że jest rodzicem $y$.
 
-a) Zdefiniować predykaty Mezczyzna (x) (przyjmujemy upraszczające założenie, że są dwie płcie i każdy ma dokładnie jedną z nich), $"Ojciec"(x,y)$, $"Matka"(x,y)$, "Dziecko"(x,y).
+a) Zdefiniować predykaty $Mezczyzna(x)$ (przyjmujemy upraszczające założenie, że są dwie płcie i każdy ma dokładnie jedną z nich), $Ojciec(x, y)$, $Matka(x, y)$, $Dziecko(x, y)$.
 
-b) Zdefiniujmy predykat $"Rodzenstwo"(x, y)$ poprzez aksjomat
-$forall_(x,y) ("Rodzenstwo"(x,y) <=> exists_r ("Rodzic"(r,x) and "Rodzic"(r,y)))$
+$
+  (forall x) (Mezczyzna(x) <=> not Kobieta(x))
+$
 
-i. Uzasadnić, że $forall_(x,y) ("Rodzenstwo"(x, y) "..." "Rodzenstwo"(y, x))$
+$
+  (forall x) (forall y) (Ojciec(x, y) <=> Rodzic(x, y) and Mezczyzna(x))
+$
 
-ii. Uzasadnić, że $forall_x "Rodzenstwo"(x,x)$. Jak skorygować definicję predykatu "Rodzenstwo", aby uniemożliwić ten wynik?
+$
+  (forall x) (forall y) (Matka(x, y) <=> Rodzic(x, y) and Kobieta(x))
+$
+
+$
+  (forall x) (forall y) (Dziecko(x, y) <=> Rodzic(y, x))
+$
+
+b) Zdefiniujmy predykat $Rodzenstwo(x, y)$ poprzez aksjomat
+
+$ forall_(x,y) (Rodzenstwo(x, y) <=> exists_r (Rodzic(r, x) and Rodzic(r, y))) $
+
+i. Uzasadnić, że $forall_(x,y) (Rodzenstwo(x, y) <=> Rodzenstwo(y, x))$
+
+Ustalmy $x, y$. Wtedy:
+
+$
+  Rodzenstwo(x, y) & <=> exists_r (Rodzic(r, x) and Rodzic(r, y)) \
+                   & <=> exists_r (Rodzic(r, y) and Rodzic(r, x)) \
+                   & <=> Rodzenstwo(y, x)
+$
+
+ii. Uzasadnić, że $forall_x Rodzenstwo(x, x)$. Jak skorygować definicję predykatu $Rodzenstwo$, aby uniemożliwić ten wynik?
+
+Ustalmy $x$. Wtedy:
+
+$
+  Rodzenstwo(x, x) & <=> exists_r (Rodzic(r, x) and Rodzic(r, x)) \
+                   & <=> exists_r (Rodzic(r, x)) \
+$
+
+Jeśli założymy, że każda osoba ma rodzica to jest to prawda.
+
+Aby tego uniknąć, możemy dodać dodatkowy warunek:
+
+$
+  forall_(x,y) (Rodzenstwo (x, y) <=> x != y and exists_r (Rodzic(r, x) and Rodzic(r, y)))
+$
 
 c) Sprawdzić, jaki rodzaj relacji oznacza sformułowanie m-th cousin n times removed" (np. third cousin twice removed), zapisać odpowiedni predykat.
+
 
 Zadanie
 Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować przydatne predykaty i zapisać odpowiednie formuły).  W razie potrzeby można korzystać z predykatów, stałych i funkcji arytmetycznych (np. $x < y$ czy $y = x + 7$) bez ich definiowania.
@@ -206,6 +255,7 @@ c) problem 8 hetmanów (należy rozstawić na szachownicy 8 hetmanów tak, aby �
 
 Zadanie 6
 Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej strukturze, a jest tautologią, jeśli jest prawdziwa we wszystkich strukturach.  Dla każdej z poniższych formuł ustalić, czy są spełnialne i czy są tautologiami.
+
 a) $(forall_x exists_y P(x,y)) => (exists_x forall_y P(x,y))$
 b) $(forall_x exists_y P(x,y)) => (exists_y forall_x P(x,y))$
 c) (P(x,y))
