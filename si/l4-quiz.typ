@@ -287,9 +287,15 @@ Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować prz
     (n > 0) and ((forall a) ((0 <= a and a < w) => (exists k) (0 <= k and k < n and Color(a, k) and (forall k') ((0 <= k' and k' < n and k' != k) => not Color(a, k'))))) and (forall a) (forall b) (0 <= a and a < b and b < w and Edge(a, b) => (exists k) (exists l) (0 <= k and k < n and 0 <= l and l < n and k != l and Color(a, k) and Color(b, l))))
   $
 
-
-
 + problem 8 hetmanów (należy rozstawić na szachownicy 8 hetmanów tak, aby żadne dwa nie zagrażały sobie nawzajem).
+
+  #let Hetman = "Hetman"
+
+  $Hetman(x, y)$ (hetman w x-tym rzędzie i y-tej kolumnie)
+
+  $
+    (exists r) (exists c) (r < 8 and c < 8 and Hetman(r, c))
+  $
 
 Zadanie 6
 Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej strukturze, a jest tautologią, jeśli jest prawdziwa we wszystkich strukturach.  Dla każdej z poniższych formuł ustalić, czy są spełnialne i czy są tautologiami.
