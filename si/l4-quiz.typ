@@ -270,11 +270,101 @@ Zadanie 6
 Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej strukturze, a jest tautologią, jeśli jest prawdziwa we wszystkich strukturach.  Dla każdej z poniższych formuł ustalić, czy są spełnialne i czy są tautologiami.
 
 + $(forall_x exists_y P(x,y)) => (exists_x forall_y P(x,y))$
+
+  Spełnialność.
+
+  $
+    S = {a} \
+    sigma = {P in S^2} \
+    I: P(a,a) equiv top
+  $
+
+  Wtedy możemy wziąć tylko $a$, $a$ z obu stron. $P(a,a) = top$, więc $top => top$ a to jest prawda.
+
+  Tautologia.
+
+  $
+    S = {a, b} \
+    sigma = {P in S^2} \
+    I: P(a, a) equiv P(b, b) equiv top , P(a,b) equiv P(b, a) equiv bot
+  $
+
+  Dla każdego $x$ znajdziemy $y = x$, taki że $P(x,y) = top$. Jednak dla wybranego $x$ będzie $y != x$, a zatem $P(x,y) = bot$. Zatem $top => bot equiv bot$.
+
 + $(forall_x exists_y P(x,y)) => (exists_y forall_x P(x,y))$
-+ (P(x,y))
-  (P( ,y))
+
+  to samo co w a
+
++ $(exists_x forall_y P(x,y)) => (forall_y exists_x P(x, y))$
+
+  To jest tautologia. Lewa strona to założenie. Zajmijmy się prawą stroną. Ustalmy y. Wiemy że istnieje x taki że dla wszystkich y-ków P(x,y). Zatem istnieje x taki że dla naszego ustalonego y-ka też zachodzi.
+
 + $(exists_x forall_y P(x,y)) => (forall_x exists_y P(x,y))$
+
+  Spełnialność. to co w a.
+
+  Tautologia. Niech
+  $
+    S = {a, b} \
+    sigma = {P in S^2} \
+    I: P(a,a) equiv P(a, b) equiv top, P(b, a) equiv P(b, b) equiv bot
+  $
+
+  Wtedy lewa strona zachodzi, bo dla x=a dla wszystkich y-ków w S zachodzi P(x, y). Ale dla x=b nie istnieje taki y-ek w S żeby P(b,y). Zatem $1 => 0 equiv 0$
+
 + $(forall x P(x) => Q(y)) => forall x (P(x) => Q(y))$
+
+  Spełnialność.
+  $
+    S = {} \
+    sigma = {P in S, Q in S} \
+    I: P equiv Q equiv top
+  $
+
+  Wtedy dla każdego x P, Q jest spełnione zatem cała formuła jest $top$.
+
+  Tautologia. Niech
+
+  $
+    S = {a, b} \
+    sigma = {P in S, Q in S} \
+    I: P(a) equiv top, P(b) equiv Q equiv bot
+  $
+
+  Wtedy:
+  $forall x P(x) equiv bot$, $Q(y) equiv bot$. Skoro dziedzina nie jest pusta to lewa strona $top$. Prawa strona. $P(a) => Q(y) equiv top => bot equiv 0$. Zatem $forall x (P(x) => Q(y)) equiv bot$. Zatem całość: $top => bot$. Czyli $bot$. Zatem nie jest to tautologia.
+
 + $(P(x) => exists y Q(y)) => exists y (P(x) => Q(y))$
+
+  To jest tautologia.
+  + $P(x) = top, exists y Q(y)$:
+
+    Obie strony zachodzą.
+
+  + $P(x) = top, not exists y Q(y)$:
+
+    Lewa strona to 1 => 0 czyli $bot$.
+
+    Prawa strona to dla wszystkich y-ków mamy ($1 => 0 equiv 0$), zatem $bot$.
+
+    Zatem $bot => bot equiv top$
+
+  + $P(x) = bot$:
+
+    Lewa strona $(0 => exists y Q(y)) equiv 1$, czyli $top$.
+
+    Prawa strona $exists y (0 => Q(y))$, nie ważne czy $Q(y)$ to $(0 => 0$ lub $(0 => 1)$, to cała prawa strona $top$.
+
+    Zatem $top => top equiv top$
+
 + $(forall x P(x) => Q(y)) => exists x (P(x) => Q(y))$
+
+  To jest tautologia.
+
+  Spróbujmy podstawić coś aby wyszedł fałsz. Aby tak było lewa strona musi być równa 1, a prawa 0. Aby prawa strona była 0 to nie może istnieć x tz P(x) => Q(y). Inaczej dla kazdego x P(x) => Q(y) musi dawac 0. Czyli Q(y) musi być 0, a P(x) dla kazdego x 1. Jednak wtedy mamy, że lewa strona to 1 => 0 czyli 0, a 0 => 0 to prawda.
+
 + $(forall x P(x) => Q(x)) => exists x (P(x) => Q(x))$
+
+  tuaj rozumiem że po lewej stronie Q(x) jest wolne z x-em niezwiązanym z kwantyfikatorem ogólnym.
+
+  Załóżmy że nie jest to tautologia. Zaczynamy od prawej strony, aby to bylo nieprawdziwe to dla wszystkich x P(x) = 1 i Q(x) = 0. Ale wtedy lewa strona jest 1 => 0, czyli całość 0 => 0 equiv 1. Tautologia.
