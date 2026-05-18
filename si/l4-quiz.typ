@@ -262,7 +262,32 @@ Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować prz
 
 + Zasada szufladkowa.
 
+  Jeśli mamy $n$ szufladek i $m$ przedmiotów, przy czym $m > n > 0$ to przynejmniej jedna szufladka ma przynajmniej dwa przedmioty.
+
+  #let PwS = "PwS"
+
+  $PwS(a, b)$ (przedmiot a w szufladzie b)
+
+  Zakładam, że kwantyfikujemy po naturalnych
+
+  $
+    (forall m) (forall n) ((m > n and n > 0 and (forall a) (0 <= a and a < m => (exists s) (0 <= s and s < n and PwS(a, s)))) => ((exists s) (0 <= s and s < n and ((exists a) (0 <= a and a < m and ((exists b) (0 <= b and b < m and a != b and PwS(a, s) and PwS(b, s))))))))
+  $
+
 + problem n-kolorowania grafów (czyli przypisania do każdego wierzchołka grafu jednego z n kolorów, tak aby każda para sąsiadujących wierzchołków miała różny kolor)
+
+  #let Edge = "Edge"
+  #let Color = "Color"
+
+  $Edge(a, b)$ (krawędź pomiędzy węzłem a i b)
+
+  $Color(a, n)$ (węzeł a ma n-ty kolor)
+
+  $
+    (n > 0) and ((forall a) ((0 <= a and a < w) => (exists k) (0 <= k and k < n and Color(a, k) and (forall k') ((0 <= k' and k' < n and k' != k) => not Color(a, k'))))) and (forall a) (forall b) (0 <= a and a < b and b < w and Edge(a, b) => (exists k) (exists l) (0 <= k and k < n and 0 <= l and l < n and k != l and Color(a, k) and Color(b, l))))
+  $
+
+
 
 + problem 8 hetmanów (należy rozstawić na szachownicy 8 hetmanów tak, aby żadne dwa nie zagrażały sobie nawzajem).
 
