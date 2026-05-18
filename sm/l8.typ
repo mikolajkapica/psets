@@ -186,7 +186,7 @@ $
   partial/(partial lambda) L(lambda) = -n + sum_(i=1)^n x_i dot 1/lambda = 0 <=> hat(lambda_n) = overline(X_n)
 $
 
-Ciąg $hat(X_n)$ jest asymptotycznie normalnym, jeśli istnieją ciągi $(mu_n)$ i $(sigma_n)$ liczb rzeczywistych tż:
+Ciąg $overline(X_n)$ jest asymptotycznie normalnym, jeśli istnieją ciągi $(mu_n)$ i $(sigma_n)$ liczb rzeczywistych tż:
 
 $
   E[overline(X)] = lambda \
@@ -196,27 +196,27 @@ $
 Z CTG:
 
 $
-  (hat(X_n) - lambda) / (sqrt(lambda/n)) -->^D cal(N)(0, 1)
+  (overline(X_n) - lambda) / (sqrt(lambda/n)) -->^D cal(N)(0, 1)
 $
 
 gdzie $mu = lambda, space sigma^2 = lambda$.
 
-Statystyka $(hat(X_n))$ jest asymptotycznie efektywna jeśli
+Statystyka $(overline(X_n))$ jest asymptotycznie efektywna jeśli
 
 $
-  sqrt(n) (hat(X_n) - lambda) -->^D cal(N)(0, v(lambda)), quad "gdy" n --> oo
+  sqrt(n) (overline(X_n) - lambda) -->^D cal(N)(0, v(lambda)), quad "gdy" n --> oo
 $
 
 Z CTG:
 
 $
-  (hat(X_n) - lambda) / (sqrt(lambda/n)) -->^D cal(N)(0, 1), quad "gdy" n --> oo
+  (overline(X_n) - lambda) / (sqrt(lambda/n)) -->^D cal(N)(0, 1), quad "gdy" n --> oo
 $
 
 Zatem
 
 $
-  sqrt(n) (hat(X_n) - lambda) -->^D cal(N)(0, lambda), quad "gdy" n --> oo
+  sqrt(n) (overline(X_n) - lambda) -->^D cal(N)(0, lambda), quad "gdy" n --> oo
 $
 
 
