@@ -271,7 +271,8 @@ Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować prz
   Zakładam, że kwantyfikujemy po naturalnych
 
   $
-    (forall m) (forall n) ((m > n and n > 0 and (forall a) (0 <= a and a < m => (exists s) (0 <= s and s < n and PwS(a, s)))) => ((exists s) (0 <= s and s < n and ((exists a) (0 <= a and a < m and ((exists b) (0 <= b and b < m and a != b and PwS(a, s) and PwS(b, s))))))))
+    (forall m) (forall n) ((m > n and (forall a) (a < m => (exists s) (s < n and PwS(a, s)))) \
+      => ((exists s) (s < n and ((exists a) (a < m and ((exists b) (b < m and a != b and PwS(a, s) and PwS(b, s))))))))
   $
 
 + problem n-kolorowania grafów (czyli przypisania do każdego wierzchołka grafu jednego z n kolorów, tak aby każda para sąsiadujących wierzchołków miała różny kolor)
@@ -284,7 +285,8 @@ Opisać następujące problemy za pomocą rachunku predykatów (zdefiniować prz
   $Color(a, n)$ (węzeł a ma n-ty kolor)
 
   $
-    (n > 0) and ((forall a) ((0 <= a and a < w) => (exists k) (0 <= k and k < n and Color(a, k) and (forall k') ((0 <= k' and k' < n and k' != k) => not Color(a, k'))))) and (forall a) (forall b) (0 <= a and a < b and b < w and Edge(a, b) => (exists k) (exists l) (0 <= k and k < n and 0 <= l and l < n and k != l and Color(a, k) and Color(b, l))))
+    (n > 0) and ((forall a) ((a < w) => (exists k) (k < n and Color(a, k) and (forall k') ((k' < n and k' != k) => not Color(a, k'))))) \
+    and (forall a) (forall b) (a < b and b < w and Edge(a, b) => (exists k) (exists l) (k < n and and l < n and k != l and Color(a, k) and Color(b, l))))
   $
 
 + problem 8 hetmanów (należy rozstawić na szachownicy 8 hetmanów tak, aby żadne dwa nie zagrażały sobie nawzajem).
@@ -306,7 +308,7 @@ Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej s
 
   $
     S = {a} \
-    sigma = {P in S^2} \
+    sigma = {P subset S^2} \
     I: P(a,a) equiv top
   $
 
@@ -316,7 +318,7 @@ Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej s
 
   $
     S = {a, b} \
-    sigma = {P in S^2} \
+    sigma = {P subset S^2} \
     I: P(a, a) equiv P(b, b) equiv top , P(a,b) equiv P(b, a) equiv bot
   $
 
@@ -337,7 +339,7 @@ Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej s
   Tautologia. Niech
   $
     S = {a, b} \
-    sigma = {P in S^2} \
+    sigma = {P subset S^2} \
     I: P(a,a) equiv P(a, b) equiv top, P(b, a) equiv P(b, b) equiv bot
   $
 
@@ -347,9 +349,9 @@ Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej s
 
   Spełnialność.
   $
-    S = {} \
-    sigma = {P in S, Q in S} \
-    I: P equiv Q equiv top
+    S = {a} \
+    sigma = {P subset S, Q subset S} \
+    I: P(a) equiv Q(a) equiv top
   $
 
   Wtedy dla każdego x P, Q jest spełnione zatem cała formuła jest $top$.
@@ -358,7 +360,7 @@ Formuła rachunku predykatów jest spełnialna, jeśli jest prawdziwa w pewnej s
 
   $
     S = {a, b} \
-    sigma = {P in S, Q in S} \
+    sigma = {P subset S, Q subset S} \
     I: P(a) equiv top, P(b) equiv Q equiv bot
   $
 
