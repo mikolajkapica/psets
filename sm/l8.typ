@@ -249,6 +249,31 @@ $
 $
 jest nieobciążonym i efektywnym estymatorem $sigma^2$.
 
+$E [T(X)] = ... = sigma^2$, zatem est. nieobciążony
+
+$
+X_i / sigma ~ cal(N)(0,1)
+$
+
+$
+1 / sigma^2 sum_(i=1)^n X_i^2 ~ chi_n^2
+$
+
+$
+T(X) = 1/n sigma^2 Y, Y ~ chi_n^2 \
+
+"Var"(T(X)) = sigma^4 / n^2 "Var"(Y) = sigma^4 / n^2 2n = 2 sigma^4 / n \
+
+f(x_1, sigma^2) = 1/sqrt(2 pi sigma^2) e^(- ((x-0)^2 / (2 sigma^2))) \
+
+I(theta^2) = n/(2 sigma^4) \
+
+1/I(theta^3) = (2 theta^4) / n = "Var"(T(X))
+$
+
+
+
+
 Zadanie 4
 Niech $X=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego
 $cal(U)(0, theta)$ i niech $f(x)$ oznacza gęstość rozkładu statystyki
