@@ -1,11 +1,19 @@
 #import "../lib.typ": *
-#show: styling
 
 statystka matematyczna | lista 9 - Przedziały ufności.
 
+#show heading.where(level: 2): it => {
+  pagebreak()
+  it
+}
+
+#outline()
+
 #set enum(numbering: "(a)")
 
-Zadanie 1
+= Lista 9
+
+== Zadanie 1
 Niech $X$ będzie pojedynczą obserwacją z rozkładu jednostajnego
 $cal(U)(theta - 1/2, theta + 1/2)$, gdzie $theta in RR$ jest nieznane.
 Pokazać, że $Q(X; theta) = X - theta$ jest funkcją centralną. Wyznaczyć
@@ -47,7 +55,7 @@ był przedziałem ufności dla parametru $theta$ na poziomie ufności $1 - alpha
     )
   $
 
-Zadanie 2
+== Zadanie 2
 Niech $bold(X)=(X_1,...,X_n)$ będzie próbą losową z rozkładu wykładniczego
 $cal(E)(lambda)$. Uzasadnić, że
 $Q(bold(X); lambda) = (2 n overline(X)) / lambda$
@@ -77,7 +85,8 @@ $
   = phi_(X_1 + ... + X_n) ((2 t)/(lambda)) = (1 - (cancel(lambda) i 2 t) / cancel(lambda))^(-n)
 $
 
-Porównując z funkcją charakterystyczną rozkładu $Gamma(k, theta)$ czyli $(1 - theta i t)^(-k)$ mamy, że $X ~ Gamma(n, 2) = chi^2_(2n)$, zatem $Q(bold(X); theta)$ jest funkcją centralną, ponieważ nie zależy od $lambda$.
+Porównując z funkcją charakterystyczną rozkładu $Gamma(k, theta)$ czyli $(1 -
+theta i t)^(-k)$ mamy, że $Q(bold(X); theta) ~ Gamma(n, 2) = chi^2_(2n)$, zatem $Q(bold(X); theta)$ jest funkcją centralną, ponieważ nie zależy od $lambda$.
 
 $
   PP (z_(alpha/2) <= (2 n overline(X))/lambda <= z_(1 - alpha/2))
@@ -92,7 +101,7 @@ $
 
 Zatem przedział ufności $lambda in [4/7 overline(X); 40/19 overline(X)]$
 
-Zadanie 3
+== Zadanie 3
 Niech $bold(X)=(X_1,...,X_n)$ będzie próbą losową z rozkładu $cal(N)(theta, theta)$,
 gdzie $theta > 0$. Znaleźć funkcję centralną i skonstruować przedział ufności
 dla parametru $theta$ na poziomie ufności $1 - alpha$.
@@ -140,7 +149,7 @@ $
 
 Zatem przedział ufności to $[(- 2 overline(X) minus sqrt((2 overline(X))^2 - 4 (overline(X)^2 - c theta/n)))/2; (- 2 overline(X) minus sqrt((2 overline(X))^2 - 4 (overline(X)^2 - c theta/n)))/2]$
 
-Zadanie 4
+== Zadanie 4
 Niech $bold(X)=(X_1,...,X_n)$ będzie próbą losową z rozkładu jednostajnego
 $cal(U)(theta - 1/2, theta + 1/2)$, gdzie $theta in RR$ jest nieznane.
 Skonstruować przedział ufności dla parametru $theta$ na poziomie ufności
@@ -167,7 +176,7 @@ $
 
 Zatem przedział ufności $theta$ to: $[X_((1)) - 1/2 root(n, 1 - alpha); X_((n)) + 1/2 root(n, 1 - alpha)]$
 
-Zadanie 5
+== Zadanie 5
 Niech $bold(X)=(X_1,...,X_m)$ oraz $bold(Y)=(Y_1,...,Y_n)$ będą niezależnymi próbami
 losowymi z rozkładów $cal(N)(mu_1, sigma_1^2)$ oraz
 $cal(N)(mu_2, sigma_2^2)$. Założyć, że $sigma_1^2 = sigma_2^2 = sigma$
@@ -180,7 +189,92 @@ $
 jest funkcją centralną dla $g(theta)$. Skonstruować przedział ufności dla
 parametru $g(theta)$ na poziomie ufności $1 - alpha$.
 
-Zadanie 6
+Ale też rozkłąd t-studenta definicja:
+
+$
+T = U/sqrt(Z) sqrt(v)
+$
+
+gdzie $U, Z$ niezależne zmienne losowe i $U ~ cal(N)(0, 1)$, $Z ~ chi^2_nu$.
+
+Dzielimy górę i dół przez $sigma^2$:
+
+Patrząc na górną część:
+
+$
+"Var"(overline(Y) - overline(X)) = 1/n sigma_1^2 + 1/m sigma_2^2 = (1/n + 1/m)
+sigma^2
+$
+
+$
+  (overline(Y) - overline(X) space overbrace(- mu_2 + mu_1, - g(theta))) /
+  (sigma sqrt(1/m + 1/n)) ~ cal(N)(0, 1)
+$
+
+
+To jest różnica dwóch rozkładów średnich próbkowych o rozkładzie noramlnym co
+daje rozkład normalny. Dodatkowo odjęcie $g(theta)$ i podzielenie przez
+wariancję różnicy daje rozkład standardowy normalny.
+
+Dolna część:
+
+$
+sqrt((m - 1) S_X^2/sigma^2 + (n - 1) S_Y^2/sigma^2)
+$
+
+$sum_(i=1)^n (X_i - overline(X)) ~ sigma^2 chi_(n-1)^2$ 
+i 
+$sum_(i=1)^m (Y_i - overline(Y)) ~ sigma^2 chi_(m-1)^2$.
+
+Zatem dół to suma $chi_(n-1)^2$ i $chi_(m-1)^2$ czyli $chi_(n+m-2)^2$.
+
+Nasza funkcja jest gęstością rozkładu t-studenta o $n + m - 2$ stopniach
+swobody.
+
+Zatem jest funkcją
+centralną dla $g(theta)$.
+
+A teraz skonstruujmy przedział ufności dla parametru $g(theta)$ na poziomie
+ufności $1 - alpha$::
+
+$
+  1 - alpha 
+  = PP (-t_(1 - alpha/2) < Q(X; theta) < t_(1 - alpha/2)) \
+  = PP (-t_(1 - alpha/2) < 
+  (overline(Y) - overline(X) - g(theta)) /
+  (sqrt(((m - 1) S_X^2 + (n - 1) S_Y^2)/(m + n - 2)) sqrt(1/m + 1/n))
+ < t_(1 - alpha/2)) \
+  = PP( \
+
+ - (t_(1 - alpha/2) (sqrt(((m - 1) S_X^2 + (n - 1) S_Y^2)/(m + n - 2)) sqrt(1/m + 1/n)) - overline(Y) + overline(X)) \
+  < g(theta) \
+ < - (-t_(1 - alpha/2) (sqrt(((m - 1) S_X^2 + (n - 1) S_Y^2)/(m + n - 2))
+   sqrt(1/m + 1/n) - overline(Y) + overline(X)))
+ \
+ )
+$
+
+Zatem przedział ufności dla $g(theta)$ to:
+
+$
+[
+ - (t_(1 - alpha/2) (sqrt(((m - 1) S_X^2 + (n - 1) S_Y^2)/(m + n - 2)) sqrt(1/m + 1/n)) - overline(Y) + overline(X)),
+ \
+ - (-t_(1 - alpha/2) (sqrt(((m - 1) S_X^2 + (n - 1) S_Y^2)/(m + n - 2))
+   sqrt(1/m + 1/n) - overline(Y) + overline(X)))
+]
+$
+
+
+
+
+
+
+
+
+
+
+== Zadanie 6
 Niech $bold(X)=(X_1,...,X_m)$ oraz $bold(Y)=(Y_1,...,Y_n)$ będą niezależnymi próbami
 losowymi z rozkładów $cal(N)(mu_1, sigma_1^2)$ oraz
 $cal(N)(mu_2, sigma_2^2)$. Oznaczyć
@@ -188,12 +282,123 @@ $theta = (mu_1, mu_2, sigma_1, sigma_2)$ oraz
 $g(theta) = sigma_1^2 / sigma_2^2$. Skonstruować przedział ufności dla
 parametru $g(theta)$ na poziomie ufności $1 - alpha$.
 
-Zadanie 7
+Weźmy dwa rozkłady $chi^2$:
+
+$
+((1/(m-1) S_X^2)/sigma_1^2)/((1/(n-1) S_Y^2)/sigma_2^2) = sigma_2^2/sigma_1^2 (n
+- 1)/(m-1) S_X^2/S_Y^2 = (n-1)/(m-1) S_X^2/S_Y^2 1/g(theta) ~ F(m-1, n-1)
+  "Rozkład F Snedecora"
+$
+
+Standardowy zabieg potem...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+== Zadanie 7
 Niech $bold(X)=(X_1,...,X_n)$ będzie próbą losową z rozkładu $cal(N)(mu, sigma^2)$,
 gdzie $sigma > 0$ jest znane. Podać postać przedziału ufności dla parametru
 $mu$ na poziomie ufności $1 - alpha$.
 
-Zadanie 8
+== Zadanie 8
 Niech $bold(X)=(X_1,...,X_n)$ będzie próbą losową z rozkładu Poissona
 $cal(P)(lambda)$. Wykorzystując centralne twierdzenie graniczne, twierdzenie
 Słuckiego oraz metodę delta, udowodnić, że:
@@ -210,7 +415,7 @@ centralnych oraz do konstrukcji asymptotycznych przedziałów ufności dla
 parametru $lambda$ na poziomie ufności $1 - alpha$. Zauważyć, że oba
 przedziały mają tę samą długość i są jedynie przesunięte względem siebie.
 
-Zadanie 9
+== Zadanie 9
 Niech $Y_n$ będzie zmienną losową o rozkładzie chi-kwadrat z $n$ stopniami
 swobody. Wykorzystując centralne twierdzenie graniczne, twierdzenie Słuckiego
 oraz metodę delta, udowodnić, że:
