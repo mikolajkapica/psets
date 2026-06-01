@@ -329,7 +329,7 @@ $ W(t) = W(s) exp(- integral_s^t p_1(r) dif r), quad s, t in (a, b). $
 $ y'' + p(t)y' + q(t)y = 0, $
 gdzie $p: (a, b) -> bb(R)$ i $q: (a, b) -> bb(R)$ są ciągłe. Wykazać, że $phi$ i $psi$ nie mogą osiągać ekstremum lokalnego w tym samym punkcie $t_0 in (a, b)$.
 
-Z wykładu wiemy, że $(phi, psi)$ jest układem rozwiązań RJn $space <==> space$ $forall t in (a, b) space W(phi, psi)(t) != 0$.
+Z wykładu wiemy, że $(phi, psi)$ jest układem fundamentalnym rozwiązań $space <==> space$ $forall t in (a, b) space W(phi, psi)(t) != 0$.
 
 Załóżmy nie wprost, że $phi$ i $psi$ osiągają ekstremum lokalne w punkcie $t_0 in (a, b)$.
 
