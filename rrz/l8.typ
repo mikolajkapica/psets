@@ -125,7 +125,6 @@
 
 
 
-
 *8.3.* Przy pomocy metody współczynników nieoznaczonych (metody przewidywania) znaleźć rozwiązanie ogólne równania
 
 #grid(
@@ -150,7 +149,7 @@ Wtedy $s = ln t$ i:
 $
   x(t) = y(s) \
   x'(t) = (y(s))' = (y(ln t))' = (y'(s)) / t \
-  x''(t) = ((y'(s))/t)' = ((y''(s)) / cancel(t) dot cancel(t) - y'(s)) / t^2 = (y''(s) - y'(s)) / t
+  x''(t) = ((y'(s))/t)' = ((y''(s)) / cancel(t) dot cancel(t) - y'(s)) / t^2 = (y''(s) - y'(s)) / t^2
 $
 
 Przepiszmy równanie za pomocą $y$:
@@ -171,18 +170,13 @@ $
   y'' - 4 y = 0
 $
 
-Szukamy $e^(r s)$:
+To jest równanie jednorodne o stałych współczynnikach. Zatem szukamy wielomianu charakterystycznego:
 
 $
-  y'' = r^2 e^(r s)
+  omega (lambda) = lambda^2 - 4 = 0 <=> lambda = plus.minus 2
 $
 
-$
-  r^2 e^(r s) - 4 e^(r s) = 0 \
-  (r^2 - 4) e^(r s) = 0 ==> r = 2 or r = -2
-$
-
-Zatem:
+Zatem układ fundamentalny:
 
 $
   phi_1 (s) = e^(2 s), quad phi_2 (s) = e^(-2 s)
@@ -197,8 +191,10 @@ $
 Wracamy do $x$'a (za pomocą $x(t) = y(s)$ i $s = ln t$):
 
 $
-  x(t) = 2 t C_1 - 2 t C_2
+  x(t) = t^2 C_1 + C_2 / t^2
 $
+
+Na $t > 0$ albo $t < 0$.
 
 *8.5.*
 
