@@ -4,51 +4,201 @@
   === 19 maja 2026 r.
 ]
 
+#set enum(numbering: "(a)")
+#set math.mat(delim: "[")
+
 *8.1.* Rozwiązać poniższe zagadnienia początkowe przez sprowadzenie układu do równania drugiego rzędu o stałych współczynnikach.
 
 #grid(
   columns: (1fr, 1fr, 1fr),
   column-gutter: 1em,
   [(a) $cases(
-    x' = 3x + 4y,
-    y' = 2x + 5y,
-    x(0) = 1, y(0) = -1
-  )$],
+      x' = 3x + 4y,
+      y' = 2x + 5y,
+      x(0) = 1, y(0) = -1
+    )$],
   [(b) $cases(
-    x' = x + y,
-    y' = -2x - y,
-    x(0) = 3, y(0) = -1
-  )$],
+      x' = x + y,
+      y' = -2x - y,
+      x(0) = 3, y(0) = -1
+    )$],
   [(c) $cases(
-    x' = x + 5y,
-    y' = -x - 3y,
-    x(0) = 1, y(0) = 1
-  )$]
+      x' = x + 5y,
+      y' = -x - 3y,
+      x(0) = 1, y(0) = 1
+    )$],
 )
 
 *8.2.* Przy pomocy metody uzmienniania stałych znaleźć rozwiązanie ogólne równania
 
 #grid(
   columns: (1fr, 1fr),
-  [(a) $y'' + 4y = 1 / cos(2t)$],
-  [(b) $y'' + 3y' + 2y = 1 / (1 + e^t)$]
+  [(a) $y'' + 4y = 1 / cos(2t)$], [(b) $y'' + 3y' + 2y = 1 / (1 + e^t)$],
 )
+
++ $
+    y'' + 4y = 1 / cos(2t)
+  $
+
+  Istnieje bezpośredni związek równania liniowego $n$-tego rzędu z układem liniowym $Y' = A Y$:
+
+  $
+    cases(
+      y_1 = y,
+      y_2 = y' = y'_1
+    )
+  $
+
+  $
+    y'_2 = - 0 y_2 - 4 y_1
+  $
+
+  $
+    mat(y'_1; y'_2) = mat(0, 1; -4, 0;) mat(y_1; y_2)
+  $
+
+  $
+    omega(lambda) = mat(delim: "|", -lambda, 1; -4, -lambda) = lambda^2 + 4 = 0
+  $
+
+  $
+    lambda_1 = 2i, quad lambda_2 = -2i
+  $
+
+  $
+    lambda_1 = 2i: mat(-2i, 1; -4, -2i)mat(a; b) = 0 => v_1 = mat(1; 2i)
+  $
+
+  $
+    phi_1 (t)
+    = e^(2 i t) mat(1; 2i)
+    = (cos(2t) + i sin(2t)) mat(1; 2i)
+    = mat(cos(2t); -2 sin(2t)) + i mat(sin(2t); 2 cos(2t))
+  $
+
+  Zatem macierz fundamentalna układu jednorodnego:
+
+  $
+    Phi = mat(cos(2t), sin(2t); -2 sin(2t), 2 cos(2t)), quad det Phi = 2
+  $
+
+  $
+    Phi^(-1) = 1/2 mat(2 cos(2t), -sin(2t); 2 sin(2t), cos(2t))
+  $
+
+  $
+    c'(t) = Phi^(-1) h(t), space "gdzie" h(t) = mat(0; 1/cos(2t))
+  $
+
+  $
+    mat(c'_1; c'_2) = 1/2 mat(2 cos(2t), -sin(2t); 2 sin(2t), cos(2t)) mat(0; 1/cos(2t))
+  $
+
+  Z tego mamy:
+
+  $
+    c'_1 = - 1/2 tg(2t), quad c'_2 = 1/2
+  $
+
+  Odcałkowujemy:
+
+  $
+    c_1 = 1/4 ln abs(cos(2t)) + C_1, quad c_2 = t/2 + C_2
+  $
+
+  Zatem:
+
+  $
+    Y(t) = Phi(t) c(t) = mat(cos(2t) c_1 + sin(2t) c_2; -2 sin(2t) c_1 + 2 cos(2t) c_2)
+  $
+
+  Zatem:
+
+  $
+    y(t) = y_1 (t) = cos(2t) c_1 + sin(2t) c_2
+  $
+
+
+
+
+
+
+
+
 
 *8.3.* Przy pomocy metody współczynników nieoznaczonych (metody przewidywania) znaleźć rozwiązanie ogólne równania
 
 #grid(
   columns: (1fr, 1fr),
-  [(a) $y'' - 4y' + 4y = t^2,$],
-  [(b) $y'' + 4y' + 4y = 8e^(-2t),$],
-  [(c) $y'' + 9y = 3 sin(2t) + 2 cos(3t).$]
+  gutter: 1em,
+  [(a) $y'' - 4y' + 4y = t^2,$], [(b) $y'' + 4y' + 4y = 8e^(-2t),$],
+  [(c) $y'' + 9y = 3 sin(2t) + 2 cos(3t).$],
 )
 
 (Metoda przewidywania polega na szukaniu rozwiązania w szczególnej postaci: wielomianu, wielomianu pomnożonego przez $e^(lambda t)$, kombinacji liniowej funkcji trygonometrycznych (np. $a cos(lambda t) + b sin(lambda t)$), itd...)
 
 *8.4.* Znaleźć rozwiązanie ogólne równania
+
 $ t^2 x''(t) + t x'(t) - 4x(t) = 0 $
 
 Wsk.: Podstawiając $t = e^s$, można otrzymać równanie o stałych współczynnikach.
+
+Niech $t = e^s$ i $y(s) = x(e^s)$:
+
+Wtedy $s = ln t$ i:
+
+$
+  x(t) = y(s) \
+  x'(t) = (y(s))' = (y(ln t))' = (y'(s)) / t \
+  x''(t) = ((y'(s))/t)' = ((y''(s)) / cancel(t) dot cancel(t) - y'(s)) / t^2 = (y''(s) - y'(s)) / t
+$
+
+Przepiszmy równanie za pomocą $y$:
+
+$
+  cancel(t^2) (y''(s) - y'(s)) / cancel(t^2) + cancel(t) (y'(s)) / cancel(t) - 4 y(s) = 0
+$
+
+Zatem:
+
+$
+  y'' - cancel(y') + cancel(y') - 4 y = 0
+$
+
+Więc:
+
+$
+  y'' - 4 y = 0
+$
+
+Szukamy $e^(r s)$:
+
+$
+  y'' = r^2 e^(r s)
+$
+
+$
+  r^2 e^(r s) - 4 e^(r s) = 0 \
+  (r^2 - 4) e^(r s) = 0 ==> r = 2 or r = -2
+$
+
+Zatem:
+
+$
+  phi_1 (s) = e^(2 s), quad phi_2 (s) = e^(-2 s)
+$
+
+Więc:
+
+$
+  y(s) = C_1 e^(2 s) + C_2 e^(-2 s)
+$
+
+Wracamy do $x$'a (za pomocą $x(t) = y(s)$ i $s = ln t$):
+
+$
+  x(t) = 2 t C_1 - 2 t C_2
+$
 
 *8.5.*
 
