@@ -190,9 +190,11 @@ $
 
 Wracamy do $x$'a (za pomocą $x(t) = y(s)$ i $s = ln t$):
 
+<rozwiazanie84>
 $
   x(t) = t^2 C_1 + C_2 / t^2
 $
+
 
 Na $t > 0$ albo $t < 0$.
 
@@ -204,12 +206,129 @@ spełnia tożsamość $W' + p_1(t)W = 0$, czyli
 $ W(t) = W(s) exp(- integral_s^t p_1(r) dif r), quad s, t in (a, b). $
 
 (b) Niech $phi$ będzie rozwiązaniem równania $x'' + p(t)x' + q(t)x = 0$. Używając punktu a) zaproponowac metodę znalezienia drugiego niezależnego rozwiązania tego równania.
+pi
++
+
+
+
+
+
 
 *8.6.* Rozważmy równanie $x'' + p(t)x' + q(t)x = 0$.
 
 (a) Niech $phi$ będzie rozwiązaniem powyższego równania. Pokazać, że podstawiając $x = phi y$ dostajemy równanie $y'' + p_1(t)y' = 0$.
 
-(b) Zastosować tę metodę do zadania 8.4 szukając najpierw rozwiązania wśród wielomianów.
+(b) Zastosować tę metodę do zadania 8.4 szukając najpierw rozwiązania wśród wi\elomianów.
+
++ $
+    x'' + p(t)x' + q(t)x = 0
+  $
+
+  $
+    phi'' + p phi' + q phi = 0, quad x = y phi
+  $
+
+  $
+    x'' + p x' + q x = 0
+    => y'' phi + 2 y' phi' + y phi'' + p (y' phi + y phi') + q y phi = 0
+  $
+
+  $
+    y'' phi + y' (2 phi' + p phi) + y underbrace((phi'' + p phi' + q phi), = 0) = 0 mid(|) div phi
+  $
+
+  $
+    y'' + y' underbrace((2 phi'/phi + p), p_1) = 0
+  $
+
+  Zatem dostajemy:
+
+  $
+    y'' + p_1 (t) y' = 0
+  $
+
+  gdzie $p_1 (t) = 2 phi'/phi + p(t)$
+
++ $
+    t^2 x′′ (t) + t x′ (t) − 4 x (t) = 0
+  $
+
+  Najpierw sprawdźmy czy istnieje rozwiązanie, które jest wielomianem 2-stopnia czyli:
+
+  $
+    x = a t^2 + b t + c
+  $
+
+  Wstawiając $x$ do równania różniczkowego otrzymujemy:
+
+  $
+    t^2 (2 a) + t (2 a t + b) - 4(a t^2 + b t + c) = 0
+  $
+
+  Grupując t:
+
+  $
+    t^2 (2a + 2a -4a) + t(b - 4b) - 4 c = 0
+  $
+
+  Czyli $a$ dowolne, $b = 0, c = 0$. Możemy więc wziąć np. $x = t^2 =: phi$
+
+  Teraz użyjmy naszej metody. Podzielmy równanie przez $t^2$:
+
+  $
+    x′′ (t) + t/t^2 x′ (t) − 4/t^2 x (t) = 0
+  $
+
+  Mamy $p(t) = t/t^2 i q(t) = - 4/t^2$. Z tego co policzyliśmy:
+
+  $
+    y'' + y' (2 phi'/phi + p) = 0
+  $
+
+  Wstamy $phi$ i $p$:
+
+  $
+    y'' + y' (2 (2t)/t^2 + t/t^2) = 0 \
+    y'' + y' 5/t = 0 \
+  $
+
+  Niech $u = y'$. Wtedy $y'' = u'$:
+
+  $
+    u' + u 5/t = 0
+  $
+
+  Rozdzielmy:
+
+  $
+    u'/u = -5/t
+  $
+
+  $
+    ln |u| = -5 ln|t| + C \
+    u = C t^(-5)
+  $
+
+  $
+    y' = C t^(-5)
+  $
+
+  I odcałkowujemy:
+
+  $
+    y = C t^(-4) + D
+  $
+
+  Zatem $x = y phi$:
+
+  $
+    x = (C t^(-4) + D) t^2 = C t^(-2) + D t^2
+  $
+
+  Czyli to samo co dostaliśmy w @rozwiazanie84 zadaniu 8.4.
+
+
+
 
 *8.7.* Niech $phi$ i $psi$ tworzą układ fundamentalny równania różniczkowego liniowego
 $ y'' + p(t)y' + q(t)y = 0, $
