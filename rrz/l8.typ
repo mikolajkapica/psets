@@ -190,10 +190,9 @@ $
 
 Wracamy do $x$'a (za pomocą $x(t) = y(s)$ i $s = ln t$):
 
-<rozwiazanie84>
 $
   x(t) = t^2 C_1 + C_2 / t^2
-$
+$ <rozwiazanie84>
 
 
 Na $t > 0$ albo $t < 0$.
@@ -206,8 +205,7 @@ spełnia tożsamość $W' + p_1(t)W = 0$, czyli
 $ W(t) = W(s) exp(- integral_s^t p_1(r) dif r), quad s, t in (a, b). $
 
 (b) Niech $phi$ będzie rozwiązaniem równania $x'' + p(t)x' + q(t)x = 0$. Używając punktu a) zaproponowac metodę znalezienia drugiego niezależnego rozwiązania tego równania.
-pi
-+
+
 
 
 
@@ -218,7 +216,7 @@ pi
 
 (a) Niech $phi$ będzie rozwiązaniem powyższego równania. Pokazać, że podstawiając $x = phi y$ dostajemy równanie $y'' + p_1(t)y' = 0$.
 
-(b) Zastosować tę metodę do zadania 8.4 szukając najpierw rozwiązania wśród wi\elomianów.
+(b) Zastosować tę metodę do zadania 8.4 szukając najpierw rozwiązania wśród wielomianów.
 
 + $
     x'' + p(t)x' + q(t)x = 0
@@ -250,7 +248,7 @@ pi
   gdzie $p_1 (t) = 2 phi'/phi + p(t)$
 
 + $
-    t^2 x′′ (t) + t x′ (t) − 4 x (t) = 0
+    t^2 x'' (t) + t x' (t) - 4 x (t) = 0
   $
 
   Najpierw sprawdźmy czy istnieje rozwiązanie, które jest wielomianem 2-stopnia czyli:
@@ -276,7 +274,7 @@ pi
   Teraz użyjmy naszej metody. Podzielmy równanie przez $t^2$:
 
   $
-    x′′ (t) + t/t^2 x′ (t) − 4/t^2 x (t) = 0
+    x'' (t) + t/t^2 x' (t) - 4/t^2 x (t) = 0
   $
 
   Mamy $p(t) = t/t^2 i q(t) = - 4/t^2$. Z tego co policzyliśmy:
@@ -285,7 +283,7 @@ pi
     y'' + y' (2 phi'/phi + p) = 0
   $
 
-  Wstamy $phi$ i $p$:
+  Wstawiamy $phi$ i $p$:
 
   $
     y'' + y' (2 (2t)/t^2 + t/t^2) = 0 \
@@ -325,14 +323,32 @@ pi
     x = (C t^(-4) + D) t^2 = C t^(-2) + D t^2
   $
 
-  Czyli to samo co dostaliśmy w @rozwiazanie84 zadaniu 8.4.
-
-
-
+  Czyli to samo co dostaliśmy w zadaniu 8.4.
 
 *8.7.* Niech $phi$ i $psi$ tworzą układ fundamentalny równania różniczkowego liniowego
 $ y'' + p(t)y' + q(t)y = 0, $
 gdzie $p: (a, b) -> bb(R)$ i $q: (a, b) -> bb(R)$ są ciągłe. Wykazać, że $phi$ i $psi$ nie mogą osiągać ekstremum lokalnego w tym samym punkcie $t_0 in (a, b)$.
+
+Z wykładu wiemy, że $(phi, psi)$ jest układem rozwiązań RJn $space <==> space$ $forall t in (a, b) space W(phi, psi)(t) != 0$.
+
+Załóżmy nie wprost, że $phi$ i $psi$ osiągają ekstremum lokalne w punkcie $t_0 in (a, b)$.
+
+Skoro osiągają ekstrema lokalne to $phi' (t_0) = psi' (t_0) = 0$.
+
+Wrońskian układu fundamentalnego:
+
+$
+  W(t_0)
+  = mat(delim: "|", phi(t_0), psi(t_0); phi'(t_0), psi'(t_0))
+  = mat(delim: "|", phi(t_0), psi(t_0); 0, 0)
+  = 0
+$
+
+Ale to jest sprzeczne z tym, że $(phi, psi)$ jest układem fundamentalnym rozwiązań.
+
+
+
+
 
 *8.8.* Niech $phi(dot)$ będzie nietrywialnym rozwiązaniem równania różniczkowego liniowego jednorodnego drugiego rzędu
 $ x'' - q(t)x = 0, $
