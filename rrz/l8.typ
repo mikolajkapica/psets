@@ -353,3 +353,14 @@ Ale to jest sprzeczne z tym, że $(phi, psi)$ jest układem fundamentalnym rozwi
 *8.8.* Niech $phi(dot)$ będzie nietrywialnym rozwiązaniem równania różniczkowego liniowego jednorodnego drugiego rzędu
 $ x'' - q(t)x = 0, $
 gdzie $q: (a, b) -> (0, infinity)$ jest ciągłe. Wykazać, że niemożliwa jest sytuacja, gdy istnieją $t_1 < t_2$, $t_1, t_2 in (a, b)$, takie, że $phi(t_1) = phi(t_2) = 0$ i $phi(t) > 0$ dla $t in (t_1, t_2)$.
+
+Zakładamy nie wprost, że taka sytuacja jest możliwa.
+
+Rozwiązanie równania różniczkowego drugiego rzędu należy do klasy $C^2$, więc
+jest ciągłe. Skoro $q(t) > 0 "dla" t in (a, b)$ oraz $phi(t) > 0 "dla" t in
+(t_1, t_2)$, więc $q(t) phi(t) > 0 "dla" t in (t_1, t_2)$. Wtedy $phi''(t) > 0
+"dla" t in (t_1, t_2)$. To oznacza, że $phi$ nie osiąga maksimum lokalnego na
+przedziale $(t_1, t_2)$. Skoro $phi(t_1) = phi(t_2) = 0$ i $phi(t) > 0 "dla" t
+in (t_1, t_2)$ to $phi(t)$ musi osiągnąć maksimum lokalne na przedziale $(t_1,
+  t_2)$. Ale $phi(t) > 0 "dla" t in (t_1, t_2)$ - wypukła, uniemożliwia
+osiągnieniecie maksima lokalnego. Sprzeczność.
