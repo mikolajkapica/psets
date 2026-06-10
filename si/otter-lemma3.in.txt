@@ -1,0 +1,100 @@
+% This input file is for Otter 3.0.4.
+%
+% Theorem.  Robbins algebras satisfy
+%
+%     exists C exists D, C+D=C.
+%
+% This is not a search.  It is a proof-check.  The steps of the
+% proof are included in the "hints" list to lead Otter directly
+% to the proof.
+%
+% The purpose of this job is to construct a proof object that can
+% be checked by the proof checker.
+
+op(500, xfy, +).
+
+set(build_proof_object).
+set(para_from).
+set(para_into).
+clear(para_from_right).
+clear(para_into_right).
+set(order_eq).
+
+% assign(pick_given_ratio, 1).
+
+assign(max_weight, 100).
+assign(max_mem, 16000).
+
+clear(print_kept).
+clear(print_new_demod).
+clear(print_back_demod).
+
+set(input_sos_first).
+
+% assign(max_proofs, 20).
+
+list(usable).
+x = x.
+x + y = y + x.                  % Commutativity
+end_of_list.
+
+list(sos).
+(x + y) + z = x + (y + z).      % Associativity
+x + y != x.                     % Denial of Winker condition
+n(n(n(x) + y) + n(x + y)) = y.  % Robbins
+end_of_list.
+
+list(demodulators).
+(x + y) + z = x + (y + z).      % Associativity
+end_of_list.
+
+
+list(hints).
+
+% These hints are based on the (automatic) EQP proof of the same theorem.
+
+x+y+z=y+x+z.
+x+y+z=z+x+y.
+x+y!=y.
+n(n(x+n(y))+n(y+x))=x.
+n(n(n(x+y)+z)+n(x+y+z))=z.
+n(n(n(x)+y)+n(y+x))=y.
+n(n(x+y)+n(n(x)+y))=y.
+n(n(x+n(y)+z)+n(y+x+z))=x+z.
+x+y+z+u=u+x+y+z.
+n(n(n(x+y+z)+u)+n(x+y+z+u))=u.
+n(n(x+y)+n(y+n(n(z)+x)+n(z+x)))=y.
+n(n(x+y)+n(n(y)+x))=x.
+n(n(n(x+y+z+u)+v)+n(x+y+z+u+v))=v.
+n(n(n(n(x)+y)+y+x)+y)=n(n(x)+y).
+n(n(n(x+y+z)+y+n(x)+z)+y+z)=n(x+y+z).
+n(n(n(n(x)+y)+x+y)+y)=n(n(x)+y).
+n(n(n(x+y+z+u+v)+w)+n(x+y+z+u+v+w))=w.
+n(n(x+y)+n(y+n(n(z)+x)+n(n(n(z)+x)+x+z+x)))=y.
+n(n(n(x+y+z)+x+n(y)+z)+x+z)=n(y+x+z).
+n(n(n(n(x+y)+z)+x+y+z)+z)=n(n(x+y)+z).
+n(n(n(n(x)+y)+x+y+y)+n(n(x)+y))=y.
+n(n(x+y)+n(x+n(n(z)+y)+n(n(n(z)+y)+y+z+y)))=x.
+n(n(n(x+y+z)+x+n(y)+z)+z+x)=n(y+x+z).
+n(n(n(n(x+y+z)+u)+x+y+z+u)+u)=n(n(x+y+z)+u).
+n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+z)+n(y+z))=z.
+n(n(x+y)+n(x+n(n(z)+y)+n(n(n(z)+y)+y+y+z)))=x.
+n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+z+n(y+z))+z)=n(y+z).
+n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+n(y+z)+z)+z)=n(y+z).
+n(n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+n(y+z)+z)+z+u)+n(n(y+z)+u))=u.
+n(n(x+x+x+n(n(x+x+x)+x)+x+x)+n(n(x+x+x)+n(n(x+x+x)+x)))=n(n(x+x+x)+x).
+n(n(n(x+x+x)+x)+n(n(x+x+x)+n(n(x+x+x)+x)+n(x+x+x+n(n(x+x+x)+x)+x+x)))=n(x+x+x+n(n(x+x+x)+x)+x+x).
+n(n(n(x+x+x)+x)+n(n(x+x+x)+n(n(x+x+x)+x)+n(n(n(x+x+x)+x)+x+x+x+x+x)))=n(x+x+x+n(n(x+x+x)+x)+x+x).
+n(x+x+x+n(n(x+x+x)+x)+x+x)=n(x+x+x).
+n(n(n(x+x+x)+x)+x+x+x+x+x)=n(x+x+x).
+n(n(n(x+x+x)+n(n(x+x+x)+x)+x+x)+n(x+x+x))=n(n(x+x+x)+x)+x+x.
+n(n(n(n(n(x+x+x)+x)+x+x+x+x)+x)+n(x+x+x))=x.
+n(n(n(x+x+x)+x)+n(x+x+x))=x.
+n(n(n(n(x+x+x)+x)+n(x+x+x)+y)+n(x+y))=y.
+n(n(n(x+x+x)+n(n(x+x+x)+x)+y)+n(x+y))=y.
+n(n(x+x+x)+x)+x+x=x+x.
+
+end_of_list.     % END OF HINTS
+
+assign(bsub_hint_wt, 0).
+

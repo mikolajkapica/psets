@@ -1,0 +1,68 @@
+% Converted from McCune otter-lemma3.in.txt for Prover9.
+% Goal: contradiction from denial x+y != x, i.e. Robbins algebras satisfy exists C exists D C+D=C.
+
+op(490, infix_right, +).
+assign(max_seconds, 28800).
+assign(max_weight, 100).
+assign(hints_part, 1).
+assign(age_part, 1).
+assign(weight_part, 4).
+set(breadth_first_hints).
+
+formulas(usable).
+  x = x.
+  x + y = y + x.
+end_of_list.
+
+formulas(sos).
+  (x + y) + z = x + y + z.
+  x + y != x.
+  n(n(n(x) + y) + n(x + y)) = y.
+end_of_list.
+
+formulas(demodulators).
+  (x + y) + z = x + y + z.
+end_of_list.
+
+formulas(hints).
+  x+y+z=y+x+z.
+  x+y+z=z+x+y.
+  x+y!=y.
+  n(n(x+n(y))+n(y+x))=x.
+  n(n(n(x+y)+z)+n(x+y+z))=z.
+  n(n(n(x)+y)+n(y+x))=y.
+  n(n(x+y)+n(n(x)+y))=y.
+  n(n(x+n(y)+z)+n(y+x+z))=x+z.
+  x+y+z+u=u+x+y+z.
+  n(n(n(x+y+z)+u)+n(x+y+z+u))=u.
+  n(n(x+y)+n(y+n(n(z)+x)+n(z+x)))=y.
+  n(n(x+y)+n(n(y)+x))=x.
+  n(n(n(x+y+z+u)+v)+n(x+y+z+u+v))=v.
+  n(n(n(n(x)+y)+y+x)+y)=n(n(x)+y).
+  n(n(n(x+y+z)+y+n(x)+z)+y+z)=n(x+y+z).
+  n(n(n(n(x)+y)+x+y)+y)=n(n(x)+y).
+  n(n(n(x+y+z+u+v)+w)+n(x+y+z+u+v+w))=w.
+  n(n(x+y)+n(y+n(n(z)+x)+n(n(n(z)+x)+x+z+x)))=y.
+  n(n(n(x+y+z)+x+n(y)+z)+x+z)=n(y+x+z).
+  n(n(n(n(x+y)+z)+x+y+z)+z)=n(n(x+y)+z).
+  n(n(n(n(x)+y)+x+y+y)+n(n(x)+y))=y.
+  n(n(x+y)+n(x+n(n(z)+y)+n(n(n(z)+y)+y+z+y)))=x.
+  n(n(n(x+y+z)+x+n(y)+z)+z+x)=n(y+x+z).
+  n(n(n(n(x+y+z)+u)+x+y+z+u)+u)=n(n(x+y+z)+u).
+  n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+z)+n(y+z))=z.
+  n(n(x+y)+n(x+n(n(z)+y)+n(n(n(z)+y)+y+y+z)))=x.
+  n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+z+n(y+z))+z)=n(y+z).
+  n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+n(y+z)+z)+z)=n(y+z).
+  n(n(n(n(n(n(x)+y)+x+y+y)+n(n(x)+y)+n(y+z)+z)+z+u)+n(n(y+z)+u))=u.
+  n(n(x+x+x+n(n(x+x+x)+x)+x+x)+n(n(x+x+x)+n(n(x+x+x)+x)))=n(n(x+x+x)+x).
+  n(n(n(x+x+x)+x)+n(n(x+x+x)+n(n(x+x+x)+x)+n(x+x+x+n(n(x+x+x)+x)+x+x)))=n(x+x+x+n(n(x+x+x)+x)+x+x).
+  n(n(n(x+x+x)+x)+n(n(x+x+x)+n(n(x+x+x)+x)+n(n(n(x+x+x)+x)+x+x+x+x+x)))=n(x+x+x+n(n(x+x+x)+x)+x+x).
+  n(x+x+x+n(n(x+x+x)+x)+x+x)=n(x+x+x).
+  n(n(n(x+x+x)+x)+x+x+x+x+x)=n(x+x+x).
+  n(n(n(x+x+x)+n(n(x+x+x)+x)+x+x)+n(x+x+x))=n(n(x+x+x)+x)+x+x.
+  n(n(n(n(n(x+x+x)+x)+x+x+x+x)+x)+n(x+x+x))=x.
+  n(n(n(x+x+x)+x)+n(x+x+x))=x.
+  n(n(n(n(x+x+x)+x)+n(x+x+x)+y)+n(x+y))=y.
+  n(n(n(x+x+x)+n(n(x+x+x)+x)+y)+n(x+y))=y.
+  n(n(x+x+x)+x)+x+x=x+x.
+end_of_list.
