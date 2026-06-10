@@ -232,6 +232,27 @@ Jak zaadaptować rozwiązanie poprzedniego zadania, żeby uzyskać odpowiedź na
 
 chuj wie moze jutro sobie na to odpowiem
 
+#note[
+  *Dlaczego to jest niepełne:* Brakuje odpowiedzi. Aby znaleźć sprawcę, zamiast
+  dowodzić konkretnego zdania, dodajemy zaprzeczenie zapytania z nową stałą i
+  śledzimy podstawienia użyte w refutacji.
+
+  *Poprawnie:* Pytanie zapisujemy jako $exists x Killed(x, Tuna)$. Do bazy
+  klauzul dodajemy jego zaprzeczenie:
+
+  $not Killed(x, Tuna)$.
+
+  Następnie wykonujemy rezolucję tak jak w zadaniu 7. Klauzula
+  $Killed(Jack, Tuna) or Killed(Curiosity, Tuna)$ oraz wyprowadzona klauzula
+  $not Killed(Jack, Tuna)$ dają
+
+  $Killed(Curiosity, Tuna)$.
+
+  Po rezolucji z klauzulą zapytania $not Killed(x, Tuna)$ otrzymujemy klauzulę
+  pustą przy podstawieniu $x := Curiosity$. Odpowiedzią jest więc
+  $x = Curiosity$.
+]
+
 Zadanie 9
 
 Rozważmy następujący zbiór aksjomatów:
@@ -256,6 +277,28 @@ a) Metodą forward-chaining.
 + h with a, b
 + i with (d with 7), j
 
+#note[
+  *Dlaczego źle:* Zapis nie wskazuje otrzymanych formuł. Odwołuje się też do
+  nieistniejącego aksjomatu (j), ponieważ lista kończy się na (i).
+
+  *Poprawnie:* Z aksjomatu (h), korzystając z $7 <= 9$ oraz $0 <= 3$, dla
+  $x = 7$, $s = 9$, $y = 0$ i $t = 3$ otrzymujemy
+
+  $7 + 0 <= 9 + 3$.
+
+  Z aksjomatu (d) mamy $7 <= 7 + 0$. Aksjomat (i) daje więc
+
+  $7 <= 9 + 3$.
+
+  Z aksjomatu (f), dla $x = 9$ i $y = 3$, otrzymujemy
+
+  $9 + 3 <= 3 + 9$.
+
+  Ponowne użycie (i) daje ostatecznie
+
+  $7 <= 3 + 9$.
+]
+
 
 b) Metodą backward-chaining.
 
@@ -266,6 +309,23 @@ b) Metodą backward-chaining.
 + Skoro (i) 7 <= 9 + 3 <= 3 + 9 to 7 <= 3 + 9
 
 (pewnie można zgrabniej ale idc)
+
+#note[
+  *Dlaczego zapis jest niepoprawny:* Podstawienie do (h) podano w złej
+  kolejności. Aksjomat wymaga przesłanek $x <= s$ oraz $y <= t$. Ponadto
+  przejście z $9 + 3$ do $3 + 9$ korzysta z aksjomatu (f), a dopiero potem
+  z przechodniości (i).
+
+  *Poprawnie, metodą backward-chaining:* Aby wykazać $7 <= 3 + 9$, używamy
+  (i) i wybieramy element pośredni $9 + 3$. Wystarczy wykazać:
+
+  $7 <= 9 + 3$ oraz $9 + 3 <= 3 + 9$.
+
+  Drugi cel wynika z (f). Dla pierwszego celu ponownie używamy (i), z elementem
+  pośrednim $7 + 0$. Cel $7 <= 7 + 0$ wynika z (d). Cel
+  $7 + 0 <= 9 + 3$ wynika z (h), ponieważ z aksjomatów (b) i (a) mamy
+  odpowiednio $7 <= 9$ oraz $0 <= 3$.
+]
 
 W obu przypadkach wystarczy wskazać kroki prowadzące do celu (ale warto zwrócić uwagę, ile niepotrzebnych wyprowadzeń mogłoby się pojawić w „mechanicznym" algorytmie).
 
@@ -305,6 +365,31 @@ Możemy przesunąć $exists forall$ na $forall exists$ - szczegółowy przypadek
 
 Zatem mamy bazę typu $P and not P tack bot$. Zatem przyjmujemy tezę przeciwną $qed$
 
+#note[
+  *Dlaczego źle:* Nie wolno po prostu zamieniać kolejności kwantyfikatorów
+  $exists y forall x$ na $forall x exists y$. Te formuły nie są równoważne.
+  Pierwsza jest silniejsza: wskazuje jeden wspólny element $y$ dla wszystkich
+  $x$.
+
+  *Poprawnie, przez rezolucję:* Negacja implikacji daje:
+
+  $exists y forall x space x <= y$
+
+  oraz
+
+  $exists x forall y space not (x <= y)$.
+
+  Skolemizujemy obie formuły, używając różnych stałych $a$ i $b$. Dostajemy
+  klauzule:
+
+  1. $x <= a$,
+  2. $not (b <= y)$.
+
+  W pierwszej klauzuli podstawiamy $x := b$, a w drugiej $y := a$. Otrzymujemy
+  $b <= a$ oraz $not (b <= a)$. Rezolucja daje klauzulę pustą. Zatem z (B)
+  wynika (A).
+]
+
 c) Wyjaśnić, w którym miejscu nie udaje się próba dowodu metodą rezolucji, że z (A) wynika (B) (oczywiście próba nie może się udać, bo z (A) nie wynika (B)).
 
 $ not ((forall x exists y space x <= y) => (exists y forall x space x <= y)) $
@@ -318,6 +403,30 @@ Czyli mamy:
 
 Teraz nie możemy poprzestawiać $forall exists$ na $exists forall$.
 
+#note[
+  *Uzupełnienie:* Po zanegowaniu implikacji otrzymujemy:
+
+  $forall x exists y space x <= y$
+
+  oraz
+
+  $forall y exists x space not (x <= y)$.
+
+  Po skolemizacji dostajemy klauzule
+
+  $x <= f(x)$
+
+  oraz
+
+  $not (g(y) <= y)$.
+
+  Nie muszą one zawierać literałów dopełniających się po unifikacji. Funkcje
+  Skolema $f$ i $g$ mogą wybierać różne elementy zależnie od argumentu.
+  Dlatego nie da się wyprowadzić klauzuli pustej. Przykładem modelu jest zbiór
+  liczb naturalnych z relacją $<=$: każdy element ma element nie mniejszy, ale
+  nie istnieje największa liczba naturalna.
+]
+
 
 Zadanie 11
 
@@ -326,10 +435,15 @@ Niech predykat $S(x, y)$ oznacza „osoba $x$ strzyże osobę $y$".
 a) Wyrazić za pomocą tego predykatu zdanie „Istnieje osoba, która strzyże każdego, kto nie strzyże się sam, i nie strzyże nikogo, kto strzyże się sam" (zakładamy, że dziedziną jest zbiór osób, czyli nie potrzebujemy predykatu „być osobą").
 
 $
-  exists x forall y (not S(y,y) => S(x, y) and S(y,y) => not S(x, y)) \
+  exists x forall y ((not S(y,y) => S(x, y)) and (S(y,y) => not S(x, y))) \
   <=> \
   exists x forall y (S(y,y) <=> not S(x, y)) \
 $
+
+#note[
+  *Dlaczego wcześniej było źle:* Bez nawiasów nie było jasne, czy spójnik
+  $and$ łączy dwie implikacje. Nawiasy pokazują właściwą strukturę zdania.
+]
 
 
 b) Przekształcić to zdanie w zbiór klauzul w postaci Skolema, a następnie uzasadnić za pomocą rezolucji, że jest to zbiór niespełnialny.
@@ -398,6 +512,22 @@ a) Na podstawie tych zdań zapisać odpowiednie formuły w postaci Skolema.
 + $not Ssak(x) or Rodzic(f(x), x)$
 
 b) Rozważyć różne sposoby znalezienia wszystkich koni w bazie danych (czyli wszystkich $x$, takich że $"Horse"(x)$).
+
+#note[
+  *Poprawne rozwiązanie:* Możemy użyć forward-chaining. Z faktu
+  $Kon(Bluebeard)$ wiemy, że Bluebeard jest koniem. Z
+  $Rodzic(Bluebeard, Charlie)$ i relacji odwrotnej otrzymujemy
+  $Potomek(Charlie, Bluebeard)$. Reguła o potomkach koni daje wtedy
+  $Kon(Charlie)$.
+
+  Możemy też użyć backward-chaining dla zapytania $Kon(x)$. Pierwsza odpowiedź
+  pochodzi bezpośrednio z faktu i daje $x = Bluebeard$. Druga korzysta z reguły
+  o potomkach: szukamy $Potomek(x, y)$ oraz $Kon(y)$. Dla
+  $y = Bluebeard$ relacja rodzica daje $x = Charlie$.
+
+  Wszystkie odpowiedzi, które wynikają z podanej bazy, to zatem
+  $x = Bluebeard$ oraz $x = Charlie$.
+]
 
 
 
@@ -694,7 +824,7 @@ $a + b = a$.
 
 Korzystamy teraz z faktu podanego w treści zadania: jeśli w algebrze Robbinsa istnieją $a, b$ takie, że $a + b = a$, to algebra jest Boole'owska. Stąd każdy skończony model aksjomatów Robbinsa jest algebrą Boole'a.
 
-Punkt c). W notacji $n(x) = x'$ aksjomaty Robbinsa można podać proverowi tak:
+Punkt c). W notacji $n(x) = x'$ bezpośredni cel dla Prover9 wygląda tak:
 
 ```prover9
 formulas(assumptions).
@@ -708,14 +838,27 @@ formulas(goals).
 end_of_list.
 ```
 
-Celem jest tu aksjomat Huntingtona. Po jego uzyskaniu zadanie 14 daje wszystkie aksjomaty Boole'a.
+Celem jest aksjomat Huntingtona. Sprawdziłem jednak, że w zwykłym trybie Prover9 ten plik nie kończy dowodu szybko. U mnie nie zakończył się w limicie 180 sekund.
 
-Pełny dowód maszynowy jest znany z rozwiązania McCune'a. W dowodzie EQP pojawiają się między innymi równości
+Działa natomiast następujący sprawdzalny krok pośredni. Jeśli dodamy założenie $c + c = c$, to Prover9 szybko dowodzi aksjomatu Huntingtona:
 
-$ x + x = x $
+```prover9
+assign(max_seconds, 120).
+assign(pick_given_ratio, 4).
+assign(max_weight, 21).
 
-oraz
+formulas(assumptions).
+  plus(x,y) = plus(y,x).
+  plus(plus(x,y),z) = plus(x,plus(y,z)).
+  n(plus(n(plus(x,y)), n(plus(x,n(y))))) = x.
+  plus(c,c) = c.
+end_of_list.
 
-$ x'' = x $.
+formulas(goals).
+  plus(n(plus(n(x),y)), n(plus(n(x),n(y)))) = x.
+end_of_list.
+```
 
-Każda z nich wystarcza do zakończenia dowodu. Równość $x + x = x$ daje warunek z punktu b), bo możemy wziąć $a = b = x$. Równość $x'' = x$ kończy dowód przez punkt a).
+Ten plik daje wynik `THEOREM PROVED`. Jest to wersja lematu McCune'a/Winkera: algebra Robbinsa z elementem idempotentnym jest Boole'owska.
+
+Pełny dowód ogólny polega jeszcze na automatycznym pokazaniu, że w każdej algebrze Robbinsa istnieją $C, D$ takie, że $C + D = C$. To jest zasadniczy krok z dowodu McCune'a. Oryginalnie został znaleziony przez EQP, a Prover9 bez odpowiedniego proof objectu nie odtworzył go u mnie w krótkim limicie.
