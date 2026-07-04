@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0c6b53"/>
+    </marker>
+    <marker id="axis" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#46534c"/>
+    </marker>
+  </defs>
+  <rect width="720" height="430" rx="18" fill="#fbfaf6"/>
+  <line x1="55" y1="215" x2="675" y2="215" stroke="#46534c" stroke-width="1.5" marker-end="url(#axis)"/>
+  <line x1="360" y1="390" x2="360" y2="38" stroke="#46534c" stroke-width="1.5" marker-end="url(#axis)"/>
+  <text x="682" y="221" font-family="sans-serif" font-size="18" fill="#26312b">x</text>
+  <text x="369" y="35" font-family="sans-serif" font-size="18" fill="#26312b">y</text>
+  <ellipse cx="360" cy="215" rx="100" ry="50" fill="none" stroke="#b8c3bc" stroke-width="1" stroke-dasharray="5 6"/>
+  <ellipse cx="360" cy="215" rx="200" ry="100" fill="none" stroke="#b8c3bc" stroke-width="1" stroke-dasharray="5 6"/>
+  <path d="M380 215 C380 204 369 196 357 198 C337 201 329 222 342 239 C362 264 404 256 418 223 C436 180 398 144 347 151 C282 160 260 233 301 281 C354 343 453 308 477 236 C507 147 427 82 330 101 C211 125 181 264 261 347"
+        fill="none" stroke="#0c6b53" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M460 215 C460 190 445 168 422 154" fill="none" stroke="#0c6b53" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M360 165 C332 165 307 174 290 190" fill="none" stroke="#0c6b53" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="360" cy="215" r="5" fill="#c96732"/>
+  <text x="375" y="237" font-family="sans-serif" font-size="16" fill="#c96732">(0,0)</text>
+  <text x="70" y="55" font-family="sans-serif" font-size="17" font-weight="700" fill="#26312b">Ognisko niestabilne</text>
+  <text x="70" y="80" font-family="sans-serif" font-size="15" fill="#657169">spirale na zewnątrz, obrót przeciwny do wskazówek zegara</text>
+</svg>

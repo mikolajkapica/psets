@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Rodzina rozwiązań równania Clairauta i jej obwiednia</title>
+  <desc id="desc">Proste x równe C t plus C kwadrat oraz styczna do nich parabola x równa minus t kwadrat przez cztery.</desc>
+  <defs>
+    <clipPath id="plot"><rect x="55" y="52" width="690" height="408" rx="8"/></clipPath>
+    <marker id="axis-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0 0L0 6L7 3Z" fill="#45524b"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" rx="18" fill="#fbfaf6"/>
+  <text x="55" y="31" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" fill="#17211d">Rodzina prostych i rozwiązanie osobliwe</text>
+
+  <g clip-path="url(#plot)">
+    <rect x="55" y="52" width="690" height="408" fill="#fffdf8"/>
+    <g stroke="#e4dfd5" stroke-width="1">
+      <line x1="70" y1="95" x2="730" y2="95"/><line x1="70" y1="157.5" x2="730" y2="157.5"/>
+      <line x1="70" y1="220" x2="730" y2="220"/><line x1="70" y1="282.5" x2="730" y2="282.5"/>
+      <line x1="70" y1="345" x2="730" y2="345"/><line x1="70" y1="407.5" x2="730" y2="407.5"/>
+      <line x1="125" y1="52" x2="125" y2="460"/><line x1="235" y1="52" x2="235" y2="460"/>
+      <line x1="345" y1="52" x2="345" y2="460"/><line x1="455" y1="52" x2="455" y2="460"/>
+      <line x1="565" y1="52" x2="565" y2="460"/><line x1="675" y1="52" x2="675" y2="460"/>
+    </g>
+
+    <g fill="none" stroke="#87a99c" stroke-width="1.7" opacity="0.78">
+      <line x1="70" y1="-180" x2="730" y2="420"/>
+      <line x1="70" y1="-61.25" x2="730" y2="388.75"/>
+      <line x1="70" y1="45" x2="730" y2="345"/>
+      <line x1="70" y1="138.75" x2="730" y2="288.75"/>
+      <line x1="70" y1="220" x2="730" y2="220"/>
+      <line x1="70" y1="288.75" x2="730" y2="138.75"/>
+      <line x1="70" y1="345" x2="730" y2="45"/>
+      <line x1="70" y1="388.75" x2="730" y2="-61.25"/>
+      <line x1="70" y1="420" x2="730" y2="-180"/>
+    </g>
+
+    <line x1="70" y1="345" x2="730" y2="45" stroke="#0c6b53" stroke-width="3"/>
+    <path d="M70 445 Q400 -5 730 445" fill="none" stroke="#c96732" stroke-width="5"/>
+
+    <g fill="#c96732" stroke="#fffdf8" stroke-width="2">
+      <circle cx="180" cy="320" r="5"/><circle cx="235" cy="276.25" r="5"/>
+      <circle cx="290" cy="245" r="5"/><circle cx="345" cy="226.25" r="5"/>
+      <circle cx="400" cy="220" r="5"/><circle cx="455" cy="226.25" r="5"/>
+      <circle cx="510" cy="245" r="5"/><circle cx="565" cy="276.25" r="5"/>
+      <circle cx="620" cy="320" r="5"/>
+    </g>
+  </g>
+
+  <line x1="55" y1="220" x2="752" y2="220" stroke="#45524b" stroke-width="1.5" marker-end="url(#axis-arrow)"/>
+  <line x1="400" y1="468" x2="400" y2="46" stroke="#45524b" stroke-width="1.5" marker-end="url(#axis-arrow)"/>
+  <text x="758" y="226" font-family="Georgia,serif" font-size="18" font-style="italic" fill="#17211d">t</text>
+  <text x="409" y="48" font-family="Georgia,serif" font-size="18" font-style="italic" fill="#17211d">x(t)</text>
+
+  <g font-family="Inter,Arial,sans-serif" font-size="12" fill="#68716c">
+    <text x="118" y="238">−5</text><text x="228" y="238">−3</text><text x="340" y="238">−1</text>
+    <text x="451" y="238">1</text><text x="561" y="238">3</text><text x="671" y="238">5</text>
+    <text x="407" y="100">5</text><text x="407" y="162">2.5</text><text x="407" y="287">−2.5</text><text x="407" y="350">−5</text>
+  </g>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="72" y="63" width="258" height="64" rx="9" fill="#fffdf8" stroke="#d8d2c6"/>
+    <line x1="88" y1="83" x2="125" y2="83" stroke="#87a99c" stroke-width="2"/>
+    <text x="136" y="88" font-size="13" fill="#17211d">rozwiązania ogólne: x = Ct + C²</text>
+    <line x1="88" y1="108" x2="125" y2="108" stroke="#c96732" stroke-width="4"/>
+    <text x="136" y="113" font-size="13" fill="#17211d">obwiednia: x = −t²/4</text>
+  </g>
+
+  <path d="M548 302 C590 294 621 278 641 251" fill="none" stroke="#c96732" stroke-width="1.5"/>
+  <text x="547" y="322" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#c96732">punkty styczności</text>
+  <text x="547" y="339" font-family="Inter,Arial,sans-serif" font-size="12" fill="#68716c">t = −2C, x = −C²</text>
+</svg>
